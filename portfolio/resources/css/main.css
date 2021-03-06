@@ -1,0 +1,37 @@
+body, html {
+  margin: 0;
+  height: 100%;
+  width:100%;
+}
+
+/****** menu/ navigation *********/
+#menu {
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+}
+
+#menu-links {
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+#menu-icon {
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+#menu .link {
+  background-color: rgb(20, 20, 20);
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+#menu-header {
+  display: flex;
+  justify-content: space-between;
+}
