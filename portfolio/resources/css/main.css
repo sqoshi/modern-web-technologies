@@ -2,12 +2,13 @@ body, html {
   margin: 0;
   height: 100%;
   width: 100%;
+  font-family: Ubuntu, "times new roman", times, roman, serif;
 }
 
-/****** menu/ navigation *********/
+/********** menu/ navigation *********/
 #menu {
   overflow: hidden;
-  background-color: #333;
+  background-color: rgb(20, 20, 20);
   position: relative;
 }
 
@@ -42,8 +43,11 @@ body, html {
   background-color: rgb(20, 20, 20);
   padding: 20px 24px;
   text-decoration: none;
+  align-items: center;
+  justify-content: space-around;
   font-size: 17px;
   display: block;
+  color: white;
 }
 
 #menu .link:hover {
@@ -56,4 +60,35 @@ body, html {
   display: flex;
   flex: 1;
   justify-content: space-between;
+}
+
+.hamburger-rect {
+  fill: rgb(255, 255, 255);
+  width: 100px;
+  height: 20px;
+}
+
+/******************** image **********************/
+#face-img-cropper {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  max-height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  border: solid black;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+#face-img {
+  margin-left: 30px;
+  width: 80%;
+}
+
+/****************** intro ********************/
+#intro {
+  width: 100%;
 }
