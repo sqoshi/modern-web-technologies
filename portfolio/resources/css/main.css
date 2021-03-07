@@ -1,7 +1,7 @@
 body, html {
   margin: 0;
   height: 100%;
-  width:100%;
+  width: 100%;
 }
 
 /****** menu/ navigation *********/
@@ -21,17 +21,39 @@ body, html {
 #menu-icon {
   cursor: pointer;
   margin-right: 15px;
+  height: 100%;
+  min-width: 30px;
+  width: 50px;
+}
+
+#menu-logo-a {
+  display: inline-block;
+  line-height: 1;
+}
+
+#menu-logo-img {
+  margin-left: 15px;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
 #menu .link {
   background-color: rgb(20, 20, 20);
-  padding: 14px 16px;
+  padding: 20px 24px;
   text-decoration: none;
   font-size: 17px;
   display: block;
 }
 
+#menu .link:hover {
+  background-color: #333;
+}
+
 #menu-header {
+  clear: both;
+  height: 100px;
   display: flex;
+  flex: 1;
   justify-content: space-between;
 }
