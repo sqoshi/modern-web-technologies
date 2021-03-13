@@ -54,8 +54,8 @@
       </section>
     </section>
   </section>
-  <section id='skills-container'>
-    <section class='column'>
+  <section id='skills-container move-up'>
+    <section class='column move-up'>
       <div id='skills-overlay'>
         <section id='skills' class="content">
           <div class='skills-element'>
@@ -111,14 +111,40 @@
       </div>
     </section>
   </section>
+  <h1 class='skills-header'>Projects</h1>
+
   <section id='projects'>
-    <img id="img" src="https://raw.githubusercontent.com/sqoshi/neural-network-designer/master/static/images/results_example.png"/>
-    <input type="button" onclick="location.href='projects.html';" value="Go to Projects" />
-    <button type="button" onclick="displayPreviousImage()">Previous</button>
-    <button type="button" onclick="displayNextImage()">Next</button>
-
+    <div id='projects-container'>
+      <img id="project-img" src="resources/img/projects/shopping_bot.png" />
+      <input id='project-href' type="button" onclick="location.href='projects.html';" value="Go to Projects" />
+      <div id='project-left-arrow'>
+        <div class='arrow left' onclick="displayPreviousImage()"></div>
+      </div>
+      <div id='project-right-arrow'>
+        <div class='arrow right' onclick="displayNextImage()"></div>
+      </div>
+    </div>
   </section>
-
+  <section id='contact'>
+    <section class="column">
+      <h1 class='skills-header'>Contact references</h1>
+      <div id='contact-references-container'>
+        <a href="mailto:piotrpopis@icloud.com" class='contact-reference'>
+          <img src='resources/img/logos/mail.png' class='contact-reference-img'></img>
+        </a>
+        <a href='https://www.linkedin.com/in/piotr-popis/' class='contact-reference'>
+          <img src='resources/img/logos/lin.png' class='contact-reference-img'></img>
+        </a>
+        <a href='https://www.github.com/sqoshi' class='contact-reference'>
+          <img src='resources/img/logos/git.png' class='contact-reference-img'></img>
+        </a>
+        <a href='https://www.facebook.com/piotr.popis' class='contact-reference'>
+          <img src='resources/img/logos/fb.png' class='contact-reference-img'></img>
+        </a>
+      </div>
+      <a>
+    </section>
+  </section>
 
 </body>
 

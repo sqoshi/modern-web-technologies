@@ -11,20 +11,29 @@ function toggle_menu() {
 
 
 function displayNextImage() {
-    x = (x === images.length - 1) ? 0 : x + 1;
-    document.getElementById("img").src = images[x];
+  x = (x === images.length - 1) ? 0 : x + 1;
+  document.getElementById("project-img").style.backgroundSize = 'cover'
+  document.getElementById("project-img").src = images[x];
 }
 
 function displayPreviousImage() {
-    x = (x <= 0) ? images.length - 1 : x - 1;
-    document.getElementById("img").src = images[x];
+  x = (x <= 0) ? images.length - 1 : x - 1;
+  document.getElementById("project-img").style.backgroundSize = 'cover'
+  document.getElementById("project-img").src = images[x];
 }
 
 function startTimer() {
-    setInterval(displayNextImage, 6000);
+  setInterval(displayNextImage, 6000);
 }
 
-var images = [], x = -1;
-images[0] = "https://raw.githubusercontent.com/sqoshi/global-warming-investigator/master/static/images/world_map.png";
-images[1] = "https://raw.githubusercontent.com/sqoshi/neural-network-designer/master/static/images/results_example.png";
-images[2] = "https://raw.githubusercontent.com/sqoshi/zalando-shopping-bot/master/features/screenshots/panelbot.png";
+var images = ['resources/img/projects/nnb.png',
+    'resources/img/projects/csa.png',
+    'resources/img/projects/gwi.png',
+    'resources/img/projects/shopping_bot.png',
+    'resources/img/projects/announce_flask.png',
+    'resources/img/projects/gogame_java.png',
+    'resources/img/projects/scrabble_hack.png',
+    'resources/img/projects/gpa.png',
+    'resources/img/projects/woe.jpg',
+  ],
+  x = -1;

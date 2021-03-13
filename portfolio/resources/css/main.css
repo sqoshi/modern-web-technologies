@@ -162,9 +162,13 @@ body, html {
   flex-direction: column;
 }
 
+.move-up {
+  margin-bottom: -10rem;
+}
+
 /**************** projects ******************/
 #projects {
-  background-color: black;
+  box-shadow: 0px 10px 5px #888, 0px -10px 5px #888;
   display: flex;
   flex-direction: column;
 }
@@ -179,4 +183,100 @@ body, html {
   height: 50vw;
 }
 
+#projects-container {
+  position: relative;
+}
+
+#project-img {
+  height: 70vw;
+  background-size: cover;
+  width: 100%;
+}
+
+#project-href {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: rgb(20, 20, 20);
+  color: white;
+  font-size: 4vw;
+  padding: 5vw 10vw;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#project-href:hover, #project-href:active {
+  background-color: rgba(85, 85, 85, 1);
+}
+
+.arrow {
+  border: solid white;
+  border-width: 0 10px 10px 0;
+  display: inline-block;
+  padding: 10px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+#project-left-arrow {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+#project-right-arrow {
+  position: absolute;
+  top: 50%;
+  left: 95%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
 /**************** contact ******************/
+#contact {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+#contact-references-container {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-reference {
+  align-items: center;
+  justify-content: space-around;
+  padding: 1vw;
+  margin-top: 2vw;
+  height: 10vw;
+  border-radius: 15px;
+  width: 100%;
+  background: rgb(20, 20, 20);
+  display: flex;
+  line-height: 1;
+}
+
+.contact-reference-img {
+  height: 80%;
+  object-fit: contain;
+}
+
+.contact-reference:hover, .contact-reference:active {
+  background-color: rgba(85, 85, 85, 1);
+}
