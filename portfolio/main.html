@@ -8,7 +8,7 @@
   <title></title>
 </head>
 
-<body>
+<body onload="startTimer()">
   <nav id="menu">
     <div id='menu-header'>
       <a id='menu-logo-a' href="main.html"><img id='menu-logo-img' src="resources/img/logo_wolf_white.png" /></img></a>
@@ -20,19 +20,105 @@
     </div>
     <nav id='menu-links' class='menu-links'>
       <a class='link' href="main.html">Home</a>
-      <a class='link' href="#">Portfolio</a>
-      <a class='link' href="#">About</a>
+      <a class='link' href="projects.html">Projects</a>
     </nav>
   </nav>
+  <section id='hero'>
+    <section class='column'>
+      <!-- below intro maybe a section ?-->
+      <div id='intro'>
+        <h1> Computer Science Student & Software Developer </h1>
+        <p> I study computer science at WPPT and work as SW in Nokia.
+      </div>
+      <div id='avatar-cropper'>
+        <img id='avatar' src='resources/img/avatar_face.png'></img>
+      </div>
+    </section>
+  </section>
+  <section id='it-interests-container'>
+    <section class='column'>
+      <section id='it-interests' class='content'>
+        <div id='it-interests-text-container'>
+          <h4 style="text-align: center;">Programming Interests<h4>
+              I am a computer science student with robust
+              problem solving skills. I am interested
+              especially in metaheuristic alghoritms and
+              new technologies. I am focused on improving
+              my programming skills by finding the right
+              team to work with and acquire experience.
 
-<div id='intro'>
-  <h1> Computer Science Student & Software Developer </h1>
-  <p> I study computer science at WPPT and work as SW in Nokia.
+              I am interested
+              especially in metaheuristic alghoritms and
+              new technologies.
+        </div>
+      </section>
+    </section>
+  </section>
+  <section id='skills-container'>
+    <section class='column'>
+      <div id='skills-overlay'>
+        <section id='skills' class="content">
+          <div class='skills-element'>
+            <h4 class='skills-header'>Programming Languages</h4>
+            <ul class='skills-list'>
+              <li>Python</li>
+              <li>Java</li>
+              <li>Bash</li>
+              <li>JavaScript</li>
+              <li>Julia</li>
+            </ul>
+          </div>
+          <div class='skills-element'>
+            <h4 class='skills-header'>Frameworks</h4>
+            <ul class='skills-list'>
+              <li>Django</li>
+              <li>Flask</li>
+              <li>Tensorflow</li>
+              <li>Selenium</li>
+              <li>React</li>
+            </ul>
+          </div>
+          <div class='skills-element'>
+            <h4 class='skills-header'>Databases</h4>
+            <ul class='skills-list'>
+              <li>
+                <h5>SQL</h5>
+                <ul class='skills-list'>
+                  <li>MySQL</li>
+                  <li>PostgreSQL</li>
+                  <li>SQLite</li>
+                </ul>
+              </li>
+              <li>
+                <h5>NoSQL</h5>
+                <ul class='skills-list'>
+                  <li>MongoDB</li>
+                  <li>Firebase(JCS)</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class='skills-element'>
+            <h4 class='skills-header'>Foreign Languages</h4>
+            <ul class='skills-list'>
+              <li>Polish Native</li>
+              <li>English B2/C1</li>
+              <li>German A1</li>
+              <li>Norwegian [Beginner]</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </section>
+  </section>
+  <section id='projects'>
+    <img id="img" src="https://raw.githubusercontent.com/sqoshi/neural-network-designer/master/static/images/results_example.png"/>
+    <input type="button" onclick="location.href='projects.html';" value="Go to Projects" />
+    <button type="button" onclick="displayPreviousImage()">Previous</button>
+    <button type="button" onclick="displayNextImage()">Next</button>
 
-  <div id='face-img-cropper'>
-    <img id='face-img' src='resources/img/face.png'></img>
-  </div>
-</div>
+  </section>
+
 
 </body>
 

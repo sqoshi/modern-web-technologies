@@ -1,11 +1,22 @@
 body, html {
+  /*min-width:600px;*/
+  /*min-height: 300px;*/
+  overflow: auto;
   margin: 0;
   height: 100%;
   width: 100%;
   font-family: Ubuntu, "times new roman", times, roman, serif;
+  font-size: calc(0.75em + 1vmin);
+  bottom: 0;
 }
 
-/********** menu/ navigation *********/
+.column {
+  height: auto;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+/********** menu/ navigation [HEADER]*********/
 #menu {
   overflow: hidden;
   background-color: rgb(20, 20, 20);
@@ -50,7 +61,7 @@ body, html {
   color: white;
 }
 
-#menu .link:hover {
+#menu .link:hover, .link:active {
   background-color: #333;
 }
 
@@ -69,26 +80,103 @@ body, html {
 }
 
 /******************** image **********************/
-#face-img-cropper {
-  display: inline-block;
-  max-width: 100%;
-  height: auto;
-  width: auto;
-  max-height: 100%;
-  position: relative;
+#avatar-cropper {
   overflow: hidden;
   border-radius: 50%;
-  border: solid black;
   margin: 0 auto;
-  object-fit: contain;
+  height: 60vw;
+  width: 60vw;
 }
 
-#face-img {
-  margin-left: 30px;
+#avatar {
+  display: table;
+  margin: 0 auto;
   width: 80%;
+  height: auto;
 }
 
 /****************** intro ********************/
-#intro {
+#intro {}
+
+/************ auxiliary classes **************/
+.content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/****************** it-interests ********************/
+#it-interests-container {
+  margin-top: 20vw;
+  background-color: rgb(20, 20, 20);
+}
+
+#it-interests {
+  color: white;
+}
+
+#it-interests-text-container {
+  font-size: 4.5vw;
+  padding-top: 10%;
+  padding-bottom: 20rem;
+  width: 80%;
+  text-align: center;
+}
+
+/****************** skills ********************/
+#skills-overlay {
+  border-radius: 30px;
+  border-color: rgba(136, 144, 189, 0.23);
+  border-width: 3px;
+  border-style: solid;
+  top: -16rem;
+  position: relative;
+  background: white;
+  color: #141c3a;
+}
+
+.skills-list {
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 3.5vw;
+  list-style-type: none;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.skills-list ul {
   width: 100%;
 }
+
+.skills-header {
+  text-align: center;
+  font-size: 4.0vw;
+}
+
+.skills-element {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/**************** projects ******************/
+#projects {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+#projects a.button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+  color: initial;
+  background-color: white;
+  height: 50vw;
+}
+
+/**************** contact ******************/
