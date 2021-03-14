@@ -1,0 +1,138 @@
+<h1 id="covid-19-spread-analyzer">Covid-19 spread analyzer</h1>
+<h2 id="table-of-contents">Table of contents</h2>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#launch">Launch</a></li>
+  <li><a href="#installation">Installation</a></li>
+  <li><a href="#general-info">General info</a></li>
+  <li><a href="#code-example">Code Example</a></li>
+  <li><a href="#statistics">Statistics</a></li>
+  <li><a href="#artificial-intelligence">Artificial Intelligence</a></li>
+  <li><a href="#technologies">Technologies</a></li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>App created for those difficult times,
+  helps people in Poland stay tuned for news about Covid-19.
+  When you become user
+  of this program you&#39;ll get access to:</p>
+<ul>
+  <li>Responsive Poland map</li>
+  <li>Daily positive cases statistics</li>
+  <li>Daily death cases statistics</li>
+  <li>Daily tests cases statistics</li>
+  <li>Available medical tools data</li>
+  <li>Overall statistics</li>
+  <li>Details (history of deaths/ cured/ infected daily cases )for each voivodeship in Poland</li>
+</ul>
+<p>And much more, we hope you are interested :).</p>
+<h2 id="installation">Installation</h2>
+<p>Before you start enjoying this simple app, you have to go through requirements installation. Dont worry, we created
+  Requirements.txt file with all extensions needed to launch server app.</p>
+<p>Before launch type in terminal:</p>
+<pre><code class="lang-shell">pip <span class="hljs-keyword">install</span> -r requirements
+</code></pre>
+<p>That&#39;s it.</p>
+<h2 id="launch">Launch</h2>
+<p>To run server type in command line:</p>
+<pre><code class="lang-shell"> python manage<span class="hljs-selector-class">.py</span> runserver --noreload
+</code></pre>
+<h2 id="general-info">General info</h2>
+<p>When server is running,
+  you have access to responsive map of Poland (as mentioned before). Each of voivodeships in map,
+  can be checked for Covid-19 info.
+  Also, you have access to predictions about upcoming days.</p>
+<p><img src="static/img/screenshots/main_page.png" alt="IMG"></p>
+<p>Above is an example main page for 12 December.
+  Map is interactive and after clicking on chosen
+  voivodeship the right general info panel appears and here
+  we can move on to page focused totally on statistics (for clicked voivodeship).</p>
+<h2 id="code-example">Code Example</h2>
+<pre style='font-size:1vw;'><code class="lang-javascript">function draw_chart(dates, total_cases, cured_cases, deaths) {
+    var ctx = document.getElementById(<span class="hljs-string">'predictions-graph'</span>).getContext(<span class="hljs-string">'2d'</span>);
+    var myChart = new Chart(ctx, {
+<span class="hljs-attr">        type:</span> <span class="hljs-string">'line'</span>,
+<span class="hljs-attr">        data:</span> {
+<span class="hljs-attr">            labels:</span> dates,
+<span class="hljs-attr">            datasets:</span> [{
+<span class="hljs-attr">                data:</span> total_cases,
+<span class="hljs-attr">                backgroundColor:</span> <span class="hljs-string">"rgba(202, 201, 197, 0.5)"</span>,
+<span class="hljs-attr">                borderColor:</span> <span class="hljs-string">"rgba(202, 201, 197, 1)"</span>,
+<span class="hljs-attr">                pointBackgroundColor:</span> <span class="hljs-string">"rgba(202, 201, 197, 1)"</span>,
+<span class="hljs-attr">                pointBorderColor:</span> <span class="hljs-string">"#fff"</span>,
+<span class="hljs-attr">                borderWidth:</span> <span class="hljs-number">1</span>,
+<span class="hljs-attr">                label:</span> <span class="hljs-string">"Total Cases"</span>,
+<span class="hljs-attr">                name:</span> <span class="hljs-string">"Total Cases"</span>
+
+            }, {
+<span class="hljs-attr">                data:</span> cured_cases,
+<span class="hljs-attr">                backgroundColor:</span> <span class="hljs-string">"rgba(171, 9, 0, 0.5)"</span>,
+<span class="hljs-attr">                borderColor:</span> <span class="hljs-string">"rgba(171, 9, 0, 1)"</span>,
+<span class="hljs-attr">                pointBackgroundColor:</span> <span class="hljs-string">"rgba(171, 9, 0, 1)"</span>,
+<span class="hljs-attr">                pointBorderColor:</span> <span class="hljs-string">"#fff"</span>,
+<span class="hljs-attr">                borderWidth:</span> <span class="hljs-number">1</span>,
+<span class="hljs-attr">                label:</span> <span class="hljs-string">"Cured Cases"</span>,
+<span class="hljs-attr">                name:</span> <span class="hljs-string">"Cured Cases"</span>
+
+            }, {
+<span class="hljs-attr">                data:</span> deaths,
+<span class="hljs-attr">                backgroundColor:</span> <span class="hljs-string">"rgba(166, 78, 46, 0.5)"</span>,
+<span class="hljs-attr">                borderColor:</span> <span class="hljs-string">"rgba(12, 74, 0, 1)"</span>,
+<span class="hljs-attr">                pointBackgroundColor:</span> <span class="hljs-string">"rgba(123, 76, 0, 1)"</span>,
+<span class="hljs-attr">                pointBorderColor:</span> <span class="hljs-string">"#fff"</span>,
+<span class="hljs-attr">                borderWidth:</span> <span class="hljs-number">1</span>,
+<span class="hljs-attr">                label:</span> <span class="hljs-string">"Deaths"</span>,
+<span class="hljs-attr">                name:</span> <span class="hljs-string">"Deaths"</span>
+
+            }]
+        },
+<span class="hljs-attr">        options:</span> {
+<span class="hljs-attr">            scales:</span> {
+<span class="hljs-attr">                xAxes:</span> [{
+<span class="hljs-attr">                    ticks:</span> {
+<span class="hljs-attr">                        autoSkip:</span> <span class="hljs-literal">false</span>,
+<span class="hljs-attr">                        maxRotation:</span> <span class="hljs-number">90</span>,
+<span class="hljs-attr">                        minRotation:</span> <span class="hljs-number">90</span>
+                    }
+                }]
+            }
+        }
+    });
+}
+</code></pre>
+<h2 id="statistics">Statistics</h2>
+<p>Example diagrams in statistics (details section).
+  <img src="static/img/screenshots/stats1.png" alt="">
+  <img src="static/img/screenshots/stats2.png" alt="">
+</p>
+<h2 id="artificial-intelligence">Artificial Intelligence</h2>
+<p>Sample predictions vs real data below for 27 December.
+  You could notice our team put a lot of
+  effort to make predictions most efficient and
+  almost real.
+  <img src="static/img/screenshots/preds_scr.png" alt="">
+</p>
+<h4 id="structure-of-used-neural-network">Structure of used neural network</h4>
+<p><img src="static/img/screenshots/cnn.png" alt=""></p>
+<h2 id="technologies">Technologies</h2>
+<ul>
+  <li>Python 3.8</li>
+  <li>Django 3.0+</li>
+  <li>ChartJs</li>
+  <li>Tensorflow</li>
+  <li>Tweepy</li>
+  <li>Keras</li>
+  <li>Numpy</li>
+  <li>Sklearn</li>
+  <li>Scipy</li>
+</ul>
+<p>And code highlighting:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> foo = <span class="hljs-string">'bar'</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">baz</span><span class="hljs-params">(s)</span> </span>{
+   <span class="hljs-keyword">return</span> foo + <span class="hljs-string">':'</span> + s;
+}
+</code></pre>
+<p>Or inline code like <code>var foo = &#39;bar&#39;;</code>.</p>
+<p>Or an image of bears</p>
+<p><img src="http://placebear.com/200/200" alt="bears"></p>
+<p>The end ...</p>

@@ -1,0 +1,129 @@
+<h1 id="global-warming-investigator">Global warming investigator</h1>
+<h2 id="table-of-contents">Table of contents</h2>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#launch">Launch</a></li>
+  <li><a href="#installation">Installation</a></li>
+  <li><a href="#general-info">General info</a></li>
+  <li><a href="#code-example">Code Example</a></li>
+  <li><a href="#artificial-intelligence">Artificial Intelligence</a></li>
+  <li><a href="#technologies">Technologies</a></li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>Application has been developed as a solution for hackathon organized by BEST HACKS. Subject of this event was air pollution and greenhouse gas emissions.
+  Web application visualizes CO2 emission and PM10 air content on whole world( by country) and accordingly poland(by voivodeship). Additionally application provides graph- statistics for each country.
+  Simple CO2 emission calculator had been implemented to convince people about air pollution arisen by
+  a transport choice. When we have data visualization we can check which country produce a lot of CO2 and which
+  does not. We are also able to notice which countries care about global warming by declining tendency of CO2 emission.
+  On the other hand as long as we storage from data from past years we can predict next year emission. Our dataset is limited from 1960 thorugh 2015 so artificial intelligence was used to predict data between 2015 and 2025 year.</p>
+<h2 id="installation">Installation</h2>
+<pre><code>pip <span class="hljs-keyword">install</span> -r /<span class="hljs-keyword">path</span>/<span class="hljs-keyword">to</span>/requirements.txt
+</code></pre>
+<h2 id="launch">Launch</h2>
+<pre><code>python manage<span class="hljs-selector-class">.py</span> runserver
+</code></pre>
+<h2 id="general-info">General info</h2>
+<p>Application as in introduction mainly is a visualization of air pollution and global warming culprits. Our dataset storage
+  co2 emission data from 1960 through 2015. Each Map is interactive/ responsive. By a country click we can see relatively the diagram of
+  co2 per person by past years for clicked country. We have implemented an calculator of the CO2 emission as comparison of choosing
+  one transport over another</p>
+<h3 id="world-map">World Map</h3>
+<p><img src="static/images/world_map.png" alt="IMG"></p>
+<h3 id="poland-map">Poland Map</h3>
+<p><img src="static/images/poland_map.png" alt="IMG"></p>
+<h3 id="other">Other</h3>
+<h4 id="route-co2-emission-calculator">Route CO2 emission calculator</h4>
+<p><img src="static/images/compute_pm_ow.png" alt="IMG"></p>
+<h4 id="navigation-bar">Navigation bar</h4>
+<p><img src="static/images/menu.png" alt="IMG"></p>
+<h2 id="code-example">Code Example</h2>
+<p>Graph drawing on country click with canvasJS.</p>
+<pre style='font-size:1vw;'><code class="lang-python">        elemClick: function (<span class="hljs-built_in">elem</span>) {
+            <span class="hljs-built_in">var</span> self = this;
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">elem</span> === undefined) <span class="hljs-built_in">return</span>;
+            <span class="hljs-keyword">if</span> (!self.panning &amp;&amp; <span class="hljs-built_in">elem</span>.options.href !== undefined) {
+                document.getElementById(<span class="hljs-string">"graphPanel"</span>).classList.add(<span class="hljs-string">"graph_window_style"</span>);
+                document.getElementById(<span class="hljs-string">"graphPanel"</span>).<span class="hljs-built_in">style</span>.<span class="hljs-built_in">display</span>=<span class="hljs-string">"block"</span>;
+                animateLeft(document.getElementById('graphPanel'), -<span class="hljs-number">600</span>, <span class="hljs-number">80</span>);
+                <span class="hljs-built_in">let</span> alpha2 = <span class="hljs-built_in">elem</span>.mapElem[<span class="hljs-number">0</span>].getAttribute('data-id')
+                <span class="hljs-built_in">let</span> graph_values = document.getElementById(alpha2)
+                <span class="hljs-built_in">let</span> gv = graph_values.innerText.replaceAll(' ', '').<span class="hljs-built_in">split</span>(<span class="hljs-string">"],["</span>)
+                <span class="hljs-built_in">let</span> X = gv[<span class="hljs-number">0</span>].<span class="hljs-built_in">split</span>(',')
+                <span class="hljs-built_in">let</span> Y = gv[<span class="hljs-number">1</span>].<span class="hljs-built_in">split</span>(',')
+                X[<span class="hljs-number">0</span>] = X[<span class="hljs-number">0</span>].<span class="hljs-built_in">substring</span>(<span class="hljs-number">2</span>)
+                Y[Y.<span class="hljs-built_in">length</span> - <span class="hljs-number">1</span>] = Y[Y.<span class="hljs-built_in">length</span> - <span class="hljs-number">1</span>].<span class="hljs-built_in">substring</span>(<span class="hljs-number">0</span>, Y[Y.<span class="hljs-built_in">length</span> - <span class="hljs-number">1</span>].<span class="hljs-built_in">length</span> - <span class="hljs-number">2</span>)
+                <span class="hljs-built_in">let</span> <span class="hljs-built_in">points</span> = []
+                <span class="hljs-keyword">for</span> (<span class="hljs-built_in">let</span> i = <span class="hljs-number">0</span>; i &lt; Y.<span class="hljs-built_in">length</span>; i++) {
+                    <span class="hljs-keyword">if</span> (Y[i] !== 'nan') {
+                        <span class="hljs-built_in">points</span>.<span class="hljs-built_in">push</span>({x: parseInt(X[i]), y: parseFloat(Y[i])})
+                    }
+                }
+                <span class="hljs-built_in">var</span> chart = <span class="hljs-built_in">new</span> CanvasJS.Chart(<span class="hljs-string">"chartContainer"</span>, {
+                    animationEnabled: <span class="hljs-literal">true</span>,
+                    axisY: {<span class="hljs-built_in">title</span>: <span class="hljs-string">"CO2 per person"</span>},
+                    axisX: {<span class="hljs-built_in">title</span>: <span class="hljs-string">"Years"</span>},
+                    theme: <span class="hljs-string">"light2"</span>,
+                    <span class="hljs-built_in">title</span>: {
+                        text: alpha2
+                    },
+                    data: [{
+                        type: <span class="hljs-string">"line"</span>,
+                        indexLabelFontSize: <span class="hljs-number">16</span>,
+                        dataPoints: <span class="hljs-built_in">points</span>
+                    }]
+                });
+                chart.render();
+
+                document.getElementById(<span class="hljs-string">"graphPanel"</span>).onclick = function () {
+                    this.<span class="hljs-built_in">style</span>.<span class="hljs-built_in">display</span> = <span class="hljs-string">"none"</span>
+
+                }
+
+            }
+        },
+</code></pre>
+<h2 id="artificial-intelligence">Artificial Intelligence</h2>
+<p>Data between 2015 and 2024 had been predicted using neural network( tensorflow).</p>
+<h3 id="code-example">Code example</h3>
+<h4 id="procedure">Procedure</h4>
+<pre><code>    x, <span class="hljs-attr">y</span> = data_preprocess(x, y, scale_y, scale_x)
+    <span class="hljs-attr">model</span> = get_model()
+    model.fit(x, y, <span class="hljs-attr">epochs=300,</span> <span class="hljs-attr">batch_size=10,</span> <span class="hljs-attr">verbose=0)</span>
+    <span class="hljs-attr">yhat</span> = model.predict(x_pred)
+    x_plot, x_pred_plot, y_plot, <span class="hljs-attr">yhat_plot</span> = data_post_process(x, x_pred, y, yhat, scale_x, scale_y)
+    draw_plot(x_pred_plot, yhat_plot, x_plot, y_plot)
+</code></pre>
+<h4 id="model">Model</h4>
+<pre><code>    <span class="hljs-keyword">model</span> = Sequential()
+    <span class="hljs-keyword">model</span>.add(Dense(<span class="hljs-number">99</span>, input_dim=<span class="hljs-number">1</span>, activation=<span class="hljs-string">'softmax'</span>, kernel_initializer=<span class="hljs-string">'he_uniform'</span>))
+    <span class="hljs-keyword">model</span>.add(Dense(<span class="hljs-number">120</span>, activation=<span class="hljs-string">'tanh'</span>, kernel_initializer=<span class="hljs-string">'he_uniform'</span>))
+    <span class="hljs-keyword">model</span>.add(Dense(<span class="hljs-number">256</span>, activation=<span class="hljs-string">'tanh'</span>, kernel_initializer=<span class="hljs-string">'he_uniform'</span>))
+    <span class="hljs-keyword">model</span>.add(Dense(<span class="hljs-number">90</span>, activation=<span class="hljs-string">'relu'</span>, kernel_initializer=<span class="hljs-string">'he_uniform'</span>))
+    <span class="hljs-keyword">model</span>.add(Dense(<span class="hljs-number">20</span>, activation=<span class="hljs-string">'tanh'</span>, kernel_initializer=<span class="hljs-string">'he_uniform'</span>))
+    <span class="hljs-keyword">model</span>.add(Dense(<span class="hljs-number">10</span>, activation=<span class="hljs-string">'tanh'</span>, kernel_initializer=<span class="hljs-string">'he_uniform'</span>))
+    <span class="hljs-keyword">model</span>.add(Dense(<span class="hljs-number">1</span>))
+    <span class="hljs-keyword">model</span>.compile(loss=<span class="hljs-string">'mse'</span>, optimizer=<span class="hljs-string">'adam'</span>)
+</code></pre>
+<h2 id="technologies">Technologies</h2>
+<ul>
+  <li>Python</li>
+  <li>Django</li>
+  <li>Tensorflow</li>
+  <li>CSS</li>
+  <li>HTML</li>
+  <li>Javascript</li>
+  <li>CanvasJS</li>
+  <li>RaphaelJS</li>
+  <li>JQuery</li>
+</ul>
+<p>And code highlighting:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> foo = <span class="hljs-string">'bar'</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">baz</span><span class="hljs-params">(s)</span> </span>{
+   <span class="hljs-keyword">return</span> foo + <span class="hljs-string">':'</span> + s;
+}
+</code></pre>
+<p>Or inline code like <code>var foo = &#39;bar&#39;;</code>.</p>
+<p>Or an image of bears</p>
+<p><img src="http://placebear.com/200/200" alt="bears"></p>
+<p>The end ...</p>

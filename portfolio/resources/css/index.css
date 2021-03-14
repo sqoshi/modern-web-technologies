@@ -44,19 +44,20 @@ body, html {
 }
 
 #menu-logo-img {
-  margin-left: 15px;
+  margin-left: 2%;
   height: 100%;
   width: 100%;
   object-fit: contain;
 }
 
 #menu .link {
+  text-align: center;
   background-color: rgb(20, 20, 20);
   padding: 20px 24px;
   text-decoration: none;
   align-items: center;
   justify-content: space-around;
-  font-size: 17px;
+  font-size: 4vw;
   display: block;
   color: white;
 }
@@ -96,7 +97,9 @@ body, html {
 }
 
 /****************** intro ********************/
-#intro {}
+#intro {
+  text-align: center;
+}
 
 /************ auxiliary classes **************/
 .content {
@@ -105,6 +108,10 @@ body, html {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.section-header {
+  font-size: 4.0vw;
 }
 
 /****************** it-interests ********************/
@@ -118,11 +125,15 @@ body, html {
 }
 
 #it-interests-text-container {
-  font-size: 4.5vw;
+  font-size: 3.2vw;
   padding-top: 10%;
   padding-bottom: 20rem;
   width: 80%;
   text-align: center;
+}
+
+.interests-title {
+  font-size: 3.5vw;
 }
 
 /****************** skills ********************/
@@ -138,21 +149,32 @@ body, html {
 }
 
 .skills-list {
-  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   font-size: 3.5vw;
   list-style-type: none;
   justify-content: space-around;
   text-align: center;
+  align-items: center;
 }
 
 .skills-list ul {
+  margin: 0;
+  padding: 0;
   width: 100%;
 }
 
 .skills-header {
   text-align: center;
   font-size: 4.0vw;
+}
+
+.skills-subheader {
+  text-align: center;
+  font-size: 3.0vw;
 }
 
 .skills-element {
@@ -164,6 +186,10 @@ body, html {
 
 .move-up {
   margin-bottom: -10rem;
+}
+
+.last-skills-element {
+  padding-bottom: 4rem;
 }
 
 /**************** projects ******************/
@@ -214,9 +240,9 @@ body, html {
 
 .arrow {
   border: solid white;
-  border-width: 0 10px 10px 0;
+  border-width: 0 2vw 2vw 0;
   display: inline-block;
-  padding: 10px;
+  padding: 2.0vw;
 }
 
 .right {
@@ -265,7 +291,7 @@ body, html {
   padding: 1vw;
   margin-top: 2vw;
   height: 10vw;
-  border-radius: 15px;
+  border-radius: 1vw;
   width: 100%;
   background: rgb(20, 20, 20);
   display: flex;

@@ -1,0 +1,94 @@
+<h1 id="grade-point-average-calculator">Grade Point Average Calculator</h1>
+<h2 id="table-of-contents">Table of contents</h2>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#general-info">General info</a></li>
+  <li><a href="#code-example">Code Example</a></li>
+  <li><a href="#launch">Launch</a></li>
+  <li><a href="#installation">Installation</a></li>
+  <li><a href="#technologies">Technologies</a></li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>React application to convert grades from Polish or U.S grades system to GPA world system and
+  compute grade point average according to formula from Stanford University.
+  <img src="public/img/page.png" alt="IMG">
+</p>
+<h2 id="general-info">General info</h2>
+<p>Grades can be inserted manually or you can input a file with xls extension. </p>
+<ul>
+  <li>There is a need to have your grades under column named
+    &#39;Ocena&#39; and the ECTS or hours value under column called &#39;ECTS&#39;.</li>
+  <li>Rest of columns do not affect the performance of the application.</li>
+  <li>The columns&#39; order does not matter.</li>
+</ul>
+<p>Program accepts XLS files generated straight from JSOS (
+  for Wrocław University of Science and Technology Students).</p>
+<p>Data Sample if you do not want to enter it manually:
+  <img src="public/img/data.png" alt="IMG">
+</p>
+<h3 id="data-formating-">Data formating:</h3>
+<ul>
+  <li>Wrong rows like &quot;---&quot; are being omitted.</li>
+  <li>Values from rows like &#39;(E)&#39; are taken into account.</li>
+</ul>
+<h4 id="example-results">Example Results</h4>
+<p><img src="public/img/result.png" alt="IMG"></p>
+<h2 id="code-example">Code Example</h2>
+<p style='font-size:1vw;'>```javascript 1.8
+  class InputComponent extends Component {
+  state = {
+  renderView: 0,
+  };
+  render() {
+  return (
+<div className={"input-element"}>
+  <label>ECTS<input class="ects-in" value={this.props.val_ects} type="text"></input></label>
+  <label> <input class="grades-in" value={this.props.val_grade} type="text"></input> Grade</label>
+</div>
+);
+}
+}</p>
+<pre><code>
+
+<span class="clean">
+## Launch
+
+In the project directory, you can run:
+### `npm start`
+Runs the app <span class="hljs-keyword">in</span> the development mode.\
+Open [http:<span class="hljs-comment">//localhost:3000](http://localhost:3000) to view it in the browser.</span>
+The page will reload <span class="hljs-keyword">if</span> you make edits.\
+You will also see any lint errors <span class="hljs-keyword">in</span> the console.
+
+
+## Installation
+### `npm  install --scripts-prepend-node-path=auto`
+Builds the app for production <span class="hljs-keyword">in</span> the current folder.
+
+It correctly bundles React <span class="hljs-keyword">in</span> production mode and optimizes
+the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https:<span class="hljs-comment">//facebook.github.io/create-react-app/docs/deployment) for more information.</span>
+
+
+## Technologies
+- ReactJS
+- Javascript
+- Xlsx
+
+And <span class="hljs-keyword">code</span> highlighting:
+
+```js
+var foo = <span class="hljs-string">'bar'</span>;
+
+function baz(s) {
+   return foo + <span class="hljs-string">':'</span> + s;
+}</span>
+</code></pre>
+<p>Or inline code like <code>var foo = &#39;bar&#39;;</code>.</p>
+<p>Or an image of bears</p>
+<p><img src="http://placebear.com/200/200" alt="bears"></p>
+<p>The end ...</p>

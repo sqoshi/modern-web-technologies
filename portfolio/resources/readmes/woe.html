@@ -1,0 +1,126 @@
+<h1 id="warrios-of-enartia">Warrios of Enartia</h1>
+<h2 id="table-of-contents">Table of contents</h2>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#general-info">General Info</a></li>
+  <li><a href="#details">Details</a></li>
+  <li><a href="#database">Database</a></li>
+  <li><a href="#models">Models</a></li>
+  <li><a href="#code-example">Code Example</a></li>
+  <li><a href="#launch">Launch</a></li>
+  <li><a href="#installation">Installation</a></li>
+  <li><a href="#technologies">Technologies</a></li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>Role-play game consisting in incarnation into your own hero.
+  Each gamer has its own account, registered in the database.
+  Registration data is verified by the appropriate subsystem.
+  On the created account with a unique login, a hero is created in one of the selected classes.
+  Archer, Mage and Warrior are currently implemented.
+  Heroes initially receives basic equipment, which is enough for a few basic
+  expeditions in which the player is doing relatively well to the class.
+  The player sends his heroes on a journey.
+  To be able to take part in an expedition,
+  he must not take part in another one and must have sufficiently good equipment.
+  The more difficult the mission, the better equipment the player must have.
+  After completing the mission, the player receives the appropriate amount of raw materials, e.g. gold, which can be exchanged for other equipment in the store.
+  The game has a ranking of heroes based on their attack and defensively.
+  Character ranking is general or class and item ranking is separate.</p>
+<h2 id="code-example">Code Example</h2>
+<pre style='font-size:1vw;'><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">actionPerformed</span><span class="hljs-params">(ActionEvent e)</span> </span>{
+    <span class="hljs-keyword">try</span> {
+        Connection connection = (Connection) DriverManager.getConnection(<span class="hljs-string">"jdbc:mysql://localhost:3306/project"</span>, <span class="hljs-string">"root"</span>, <span class="hljs-string">"secret"</span>);
+        RegisterPanel ah = <span class="hljs-keyword">new</span> RegisterPanel(connection);
+        ah.setTitle(<span class="hljs-string">"Register Panel"</span>);
+        ah.setVisible(<span class="hljs-literal">true</span>);
+    } <span class="hljs-keyword">catch</span> (SQLException | IOException sqlException) {
+        sqlException.printStackTrace();
+    }
+}
+</code></pre>
+<h2 id="general-info">General Info</h2>
+<p>The GUI of the application was written in Java (Swing).
+  The database part consists of the MySQL relational database.
+  Communication between the above technologies is ensured by the
+  JDBC software interface, the &#39;Connection Pooling&#39; technique, which
+  reduces the number of costly connections with the database to a minimum.
+  Designed in a way that is open to further development of the application,
+  adding new classes, items or the expeditions themselves.
+  <img src="img/woe.jpg" alt="">
+</p>
+<h2 id="details">Details</h2>
+<p>The application can be used in various ways.
+  It can be a virtual character system or used for
+  various simulations or as a game.
+  The window application had been written in Java and will be linked
+  with a relational MySQL database.
+  The application will consist of various subsystems, functionalities:</p>
+<ul>
+  <li>Login system,</li>
+  <li>Registration system,</li>
+  <li>Dungeons,</li>
+  <li>Inventory system,</li>
+  <li>System of obtaining resources,</li>
+</ul>
+<h3 id="account-types-and-permissions">Account Types and permissions</h3>
+<h4 id="admin">Admin</h4>
+<ul>
+  <li>on the basis of the DELETE clause, he will be able to delete the accounts of individual players if it decides that
+    your property in an unlawful manner.</li>
+  <li>browse all tables using SELECT</li>
+  <li>able to modify raw materials, items and change the player&#39;s equipment thanks to the ALTER TABLE clauses and
+    update, e.g. award for 1st place in the ranking.</li>
+  <li>the right to add accounts thanks to the INSERT clause, (!HINT)
+    [in this game another admin can be added only by another Admin. There are no headAdmins. Their permissions are equal.]</li>
+  <li>By using INSERT INTO he has the right to add new items to the possible available weapons.</li>
+  <li>Removal of items</li>
+</ul>
+<h4 id="user">User</h4>
+<ul>
+  <li>The user has access to the SELECT clause, because he has to browse his inventory and items
+    possible to get for example from shop.</li>
+  <li>if the conditions are met, he will be able to use the update to change his subject.</li>
+</ul>
+<h4 id="premium-user">Premium User</h4>
+<ul>
+  <li>The user has access to the SELECT clause, because he has to browse his inventory and items
+    possible to get for example from shop.</li>
+  <li>if the conditions are met, he will be able to use the update to change his subject.</li>
+  <li>Since he is a VIP, she will receive more resources in the result of an expedition or a half.<h2 id="database">Database</h2>
+    In order to ensure consistent functionality and database optimization, constrains, triggers, dynamic queries, indexes, transactions, backup &amp; restore were used.<h3 id="uml">UML</h3>
+    <img src="img/project.png" alt="IMG">
+    <h3 id="triggers">Triggers</h3>
+  </li>
+  <li>ON INSERT on users checks if login is taken</li>
+  <li>ON INSERT on users checks the password if it is correct.</li>
+  <li>ON INSERT on heroes to add standard starting items for the appropriate class.</li>
+  <li>ON DELETE on weapons or some player does not have a weapon that we want to remove.</li>
+  <li>ON DELETE na, helmets or some player does not have a helm that we want to delete.</li>
+  <li>ON DELETE on shields or some player does not have a shield that we want to remove.</li>
+  <li>ON DELETE on armors or some player does not have any armor that we want to remove.</li>
+  <li>ON UPDATE on equipment, whether heroes has enough resources to change eq for the better.</li>
+  <li>ON UPDATE on equipment, so that he can check if the appropriate class uses the correct items<h3 id="procedures">Procedures</h3>
+  </li>
+  <li>procedure for adding standard class items for a new character.</li>
+  <li>procedure for adding gold, silver, wood ; weapons, armor, shield, helm</li>
+  <li>procedure to pay the first player in the ranking<h2 id="models-static-images-">Models ( static images )</h2>
+    <h3 id="warrior">Warrior</h3>
+    <img src="img/warrior.jpg" height="400" width="300">
+  </li>
+</ul>
+<h3 id="archer">Archer</h3>
+<p><img src="img/archer.jpg" height="400" width="300"></p>
+<h3 id="mage">Mage</h3>
+<p><img src="img/mage.jpeg" height="400" width="300"></p>
+<h2 id="launch">Launch</h2>
+<p><code>shell script
+    java UserLogin</code></p>
+<h2 id="installation">Installation</h2>
+<p>Install using Maven.</p>
+<h2 id="technologies">Technologies</h2>
+<ul>
+  <li>java</li>
+  <li>mysql</li>
+  <li>swing</li>
+  <li>jdbc</li>
+</ul>

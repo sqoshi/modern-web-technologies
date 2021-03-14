@@ -1,0 +1,96 @@
+<h1 id="go-game">Go Game</h1>
+<h2 id="table-of-contents">Table of contents</h2>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#general-info">General Info</a></li>
+  <li><a href="#details">Details</a></li>
+  <li><a href="#code-example">Code Example</a></li>
+  <li><a href="#application-operation-process">Application operation process</a></li>
+  <li><a href="#launch">Launch</a></li>
+  <li><a href="#installation">Installation</a></li>
+  <li><a href="#design-patterns">Design Patterns</a></li>
+  <li><a href="#technologies">Technologies</a></li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>A system for conducting games in the Go game.
+  In general, the game is about two players competing,
+  where the second can also be BOT.
+  The goal is to seize as much territory and
+  crushing as many enemy stones as possible - capturing prisoners.
+  A detailed description of the principles and functionalities can be found in the TPlab04.pdf.
+  <img src="img/gg.png" alt="">
+</p>
+<h2 id="general-info">General Info</h2>
+<p>The application was written in Java and is based on the Client-Server architecture.
+  The GUI is written in Jaview Java FX technology.
+  The server verifies the correctness of movements and mediates communication.
+  The application also allows you to play with Bot, who makes quite sensible moves.
+  The bot searches for an opponent&#39;s group on the board with as few breaths as possible and tries to suppress and surround this one. At the same time, he observes his own stones (pawns), and if he notices the reduction of his own breathing in
+  subsequent moves, he tries to expand the group by joining the group attacked by the opponent. (In fact, it is quite hard to win with him)
+  The application is open to further development of functionality. The player uses the client application to connect to the server to join the game and play the game.</p>
+<h2 id="code-example">Code Example</h2>
+<pre style='font-size:1vw;'><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Server</span> </span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> void main(<span class="hljs-keyword">String</span>[] args) throws Exception {
+        <span class="hljs-keyword">try</span> (<span class="hljs-keyword">var</span> listener = <span class="hljs-keyword">new</span> <span class="hljs-type">ServerSocket</span>(<span class="hljs-number">58901</span>)) {
+            System.out.println(<span class="hljs-string">"MP is running"</span>);
+            <span class="hljs-keyword">var</span> pool = Executors.<span class="hljs-keyword">new</span><span class="hljs-type">FixedThreadPool</span>(<span class="hljs-number">200</span>);
+            <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) {
+                Gamee game = <span class="hljs-keyword">new</span> <span class="hljs-type">Gamee</span>();
+                Game gam = <span class="hljs-keyword">new</span> <span class="hljs-type">Game</span>(size);
+                pool.execute(game.<span class="hljs-keyword">new</span> <span class="hljs-type">Player</span>(listener.accept(), PlayerColor.BLACK, gam));
+                pool.execute(game.<span class="hljs-keyword">new</span> <span class="hljs-type">Player</span>(listener.accept(), PlayerColor.WHITE, gam));
+            }
+        }
+    }
+}
+</code></pre>
+<h2 id="application-operation-process">Application operation process</h2>
+<p>The server is initially created and the player&#39;s window is opened,
+  in which we choose the mode and size of the board.
+  The player window is a Singleton and is created using the Factory pattern.
+  It consists of a board - fields and a few buttons that the server listens to. The player makes a move, the correctness of which is verified by the Server and allows the next player to move or not.
+  With each move, the board is refreshed to update.
+  History is being updated. On its basis, we check whether there
+  has been a KO or the player is not trying to make a prohibited move -
+  suicide. If he has reached this point (a new stone), put it on
+  the board and check if he has eliminated any of the enemy&#39;s groups.
+  If the opponent&#39;s group has zero breaths, it means that it has been
+  destroyed and you need to add points for the player, then change the
+  player, etc. You can also put state on pass or
+  surrender, then give up or give away accordingly.</p>
+<h2 id="launch">Launch</h2>
+<p>Firstly compile server and then run it.
+  ```shell script
+  javac Server.java &amp;&amp; java Server</p>
+<pre><code>Start the game
+```<span class="hljs-keyword">shell </span><span class="hljs-keyword">script
+</span><span class="hljs-keyword">javac </span>App.<span class="hljs-keyword">java </span>&amp;&amp; <span class="hljs-keyword">java </span>App size
+</code></pre>
+<p>where size must be in list [9, 13, 19]</p>
+<h2 id="installation">Installation</h2>
+<p>Please, Install using pom.xml file with maven.</p>
+<h2 id="design-patterns">Design Patterns</h2>
+<ul>
+  <li>singleton</li>
+  <li>state</li>
+  <li>observer</li>
+  <li>builder </li>
+  <li>factory method</li>
+</ul>
+<h2 id="technologies">Technologies</h2>
+<ul>
+  <li>java</li>
+  <li>javafx</li>
+  <li>junit5</li>
+</ul>
+<p>And code highlighting:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> foo = <span class="hljs-string">'bar'</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">baz</span><span class="hljs-params">(s)</span> </span>{
+   <span class="hljs-keyword">return</span> foo + <span class="hljs-string">':'</span> + s;
+}
+</code></pre>
+<p>Or inline code like <code>var foo = &#39;bar&#39;;</code>.</p>
+<p>Or an image of bears</p>
+<p><img src="http://placebear.com/200/200" alt="bears"></p>
+<p>The end ...</p>

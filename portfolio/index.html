@@ -3,15 +3,15 @@
 
 <head>
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
-  <link rel="stylesheet" href="resources/css/main.css">
-  <script type="text/javascript" src="resources/js/main.js"></script>
+  <link rel="stylesheet" href="resources/css/index.css">
+  <script type="text/javascript" src="resources/js/index.js"></script>
   <title></title>
 </head>
 
 <body onload="startTimer()">
   <nav id="menu">
     <div id='menu-header'>
-      <a id='menu-logo-a' href="main.html"><img id='menu-logo-img' src="resources/img/logo_wolf_white.png" /></img></a>
+      <a id='menu-logo-a' href="index.html"><img id='menu-logo-img' src="resources/img/logo_wolf_white.png" /></img></a>
       <svg id='menu-icon' onclick='toggle_menu()' viewBox="0 0 100 80">
         <rect class='hamburger-rect'></rect>
         <rect class='hamburger-rect' y="30"></rect>
@@ -19,7 +19,7 @@
       </svg>
     </div>
     <nav id='menu-links' class='menu-links'>
-      <a class='link' href="main.html">Home</a>
+      <a class='link' href="index.html">Home</a>
       <a class='link' href="projects.html">Projects</a>
     </nav>
   </nav>
@@ -28,7 +28,7 @@
       <!-- below intro maybe a section ?-->
       <div id='intro'>
         <h1> Computer Science Student & Software Developer </h1>
-        <p> I study computer science at WPPT and work as SW in Nokia.
+        <p> I am currently studying at Wroclaw University Of Science and Technology and working in NOKIA.
       </div>
       <div id='avatar-cropper'>
         <img id='avatar' src='resources/img/avatar_face.png'></img>
@@ -39,17 +39,39 @@
     <section class='column'>
       <section id='it-interests' class='content'>
         <div id='it-interests-text-container'>
-          <h4 style="text-align: center;">Programming Interests<h4>
-              I am a computer science student with robust
-              problem solving skills. I am interested
-              especially in metaheuristic alghoritms and
-              new technologies. I am focused on improving
-              my programming skills by finding the right
-              team to work with and acquire experience.
-
-              I am interested
-              especially in metaheuristic alghoritms and
-              new technologies.
+          <h4 class='section-header'>Interests<h4>
+              <a href='https://en.wikipedia.org/wiki/Metaheurisstic'>
+                <h5 class='interests-title'>Metaheuristics</h5>
+              </a>
+              Metaheuristics are algorithms used in optimization problems.
+              As an input they usually take reasearch time limit and an initial solution.
+              With various operations
+              like mutations, choosing an neighborhood, crossovers etc., changing
+              initial solution more or less randomly.
+              During research they estimate quality of encountered candidates.
+              The most popular calssifaction is to divide them into single-solution and population-based.
+              In optimization problems we encounter problem as local optimum.
+              There are some tricks used in Metaheuristics that allow us to escape from this places.
+              In matehmatical optimization and computer science
+              they may provide a sufficiently good solution to an optimization problem.
+              The problem with them is that they do not guarantee globally optimal
+              solution for some classes of problems. Some of my implementations can be found <a href='https://github.com/sqoshi/metaheuristic-alghoritms'>here</a>.
+              <a href='https://en.wikipedia.org/wiki/Machine_learning'>
+                <h5 class='interests-title'>Machine Learning</h5>
+              </a>
+              If machine learning is an aspect of artificial intelligence, then
+              <a href='https://en.wikipedia.org/wiki/Deep_learning'>deep learning</a> is an aspect of machine learning — furthermore, it
+              is a form of machine learning that applies <a href='https://en.wikipedia.org/wiki/Neural_networks'>neural networks</a>.
+              I am have worked few times with neural networks and linear regression. Neural networks can be used to solve a lot of problems.
+              For example we can solve a lot of exploration problems by learning neural network
+              to predict future data basing on the data you have.
+              Neural networks can also solve a lot of recognition problems like object
+              detection on image, or camera. Can be used for clustering problem in directed and undirected graphs.
+              We could say the possibilities are endless. Some interesting uses can be found on my
+              <a href='https://github.com/sqoshi'>github</a>.
+              <h5 class='interests-title'>Other</h5>
+              As long as I devote myself to work and study, I do not really have a lot of free time.
+              One of my dreams is to conquer one of the world's greatest peaks, I also like to play computer games :)!
         </div>
       </section>
     </section>
@@ -79,26 +101,28 @@
             </ul>
           </div>
           <div class='skills-element'>
-            <h4 class='skills-header'>Databases</h4>
+            <h4 class='skills-header'>Web Technologies</h4>
             <ul class='skills-list'>
-              <li>
-                <h5>SQL</h5>
-                <ul class='skills-list'>
-                  <li>MySQL</li>
-                  <li>PostgreSQL</li>
-                  <li>SQLite</li>
-                </ul>
-              </li>
-              <li>
-                <h5>NoSQL</h5>
-                <ul class='skills-list'>
-                  <li>MongoDB</li>
-                  <li>Firebase(JCS)</li>
-                </ul>
-              </li>
+              <li>CSS</li>
+              <li>HTML</li>
             </ul>
           </div>
           <div class='skills-element'>
+            <h4 class='skills-header'>Databases</h4>
+            <h5 class='skills-subheader'>SQL</h5>
+            <ul class='skills-list'>
+              <li>MySQL</li>
+              <li>PostgreSQL</li>
+              <li>SQLite</li>
+            </ul>
+
+            <h5 class='skills-subheader'>NoSQL</h5>
+            <ul class='skills-list'>
+              <li>MongoDB</li>
+              <li>Firebase(JCS)</li>
+            </ul>
+          </div>
+          <div class='skills-element last-skills-element'>
             <h4 class='skills-header'>Foreign Languages</h4>
             <ul class='skills-list'>
               <li>Polish Native</li>

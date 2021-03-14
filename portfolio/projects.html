@@ -3,15 +3,19 @@
 
 <head>
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
-  <link rel="stylesheet" href="resources/css/main.css">
-  <script type="text/javascript" src="resources/js/main.js"></script>
+  <link rel="stylesheet" href="resources/css/index.css">
+  <link rel="stylesheet" href="resources/css/projects.css">
+  <script type="text/javascript" src="resources/js/projects.js"></script>
   <title></title>
 </head>
 
 <body>
+  <div class='down-right-triangle'></div>
+  <div class='up-left-triangle'></div>
+  <!-- menu  ------------------------------------------------------------------->
   <nav id="menu">
     <div id='menu-header'>
-      <a id='menu-logo-a' href="main.html"><img id='menu-logo-img' src="resources/img/logo_wolf_white.png" /></img></a>
+      <a id='menu-logo-a' href="index.html"><img id='menu-logo-img' src="resources/img/logo_wolf_white.png" /></img></a>
       <svg id='menu-icon' onclick='toggle_menu()' viewBox="0 0 100 80">
         <rect class='hamburger-rect'></rect>
         <rect class='hamburger-rect' y="30"></rect>
@@ -19,10 +23,177 @@
       </svg>
     </div>
     <nav id='menu-links' class='menu-links'>
-      <a class='link' href="main.html">Home</a>
+      <a class='link' href="index.html">Home</a>
       <a class='link' href="projects.html">Projects</a>
     </nav>
   </nav>
+  <!-- menu end ------------------------------------------------------------------->
+  <section id='projects-content'>
+    <div class='column'>
+
+      <!-- shopping bot ------------------------------------------------------------------->
+      <div class='project-tile'>
+        <div class='project-object'>
+          <div class='project-container' onclick="toggle_project_info(this)">
+            <img class='project-object-img' src='resources/img/projects/shopping_bot.png'>
+            <div class='project-object-img-overlay'></div>
+            <p class="project-object-name">Shopping bot</p>
+          </div>
+        </div>
+        <div class='project-info'>
+          <article class='text'>
+            <embed src="resources/readmes/sb.html" class='readme'>
+          </article>
+        </div>
+      </div>
+
+      <!-- network designer ------------------------------------------------------------------->
+      <div class='project-tile'>
+        <div class='project-object'>
+          <div class='project-container' onclick="toggle_project_info(this)">
+            <img class='project-object-img' src='resources/img/projects/nnb.png'>
+            <div class='project-object-img-overlay'></div>
+            <p class="project-object-name">Neural network designer</p>
+          </div>
+        </div>
+        <div class='project-info'>
+          <div class='text'>
+            <embed src="resources/readmes/nnb.html" class='readme'>
+          </div>
+        </div>
+      </div>
+
+      <!-- compiler ------------------------------------------------------------------->
+      <div class='project-tile'>
+        <div class='project-object'>
+          <div class='project-container' onclick="toggle_project_info(this)">
+            <img class='project-object-img' src='resources/img/projects/compiler.jpeg'>
+            <div class='project-object-img-overlay'></div>
+            <p class="project-object-name">Compiler</p>
+          </div>
+        </div>
+        <div class='project-info'>
+          <article class='text'>
+            <embed src="resources/readmes/compiler.html" class='readme'>
+          </article>
+        </div>
+      </div>
+
+      <!-- global warming ------------------------------------------------------------------->
+      <div class='project-tile'>
+        <div class='project-object'>
+          <div class='project-container' onclick="toggle_project_info(this)">
+            <img class='project-object-img' src='resources/img/projects/gwi.png'>
+            <div class='project-object-img-overlay'></div>
+            <p class="project-object-name">Global warming investigator</p>
+          </div>
+        </div>
+        <div class='project-info'>
+          <article class='text'>
+            <embed src="resources/readmes/gwi.html" class='readme'>
+          </article>
+        </div>
+      </div>
+
+      <!-- covid analyzer ------------------------------------------------------------------->
+      <div class='project-tile'>
+        <div class='project-object'>
+          <div class='project-container' onclick="toggle_project_info(this)">
+            <img class='project-object-img' src='resources/img/projects/csa.png'>
+            <div class='project-object-img-overlay'></div>
+          </div>
+          <p class="project-object-name">Covid spread analyzer</p>
+        </div>
+        <div class='project-info'>
+          <article class='text'>
+            <embed src="resources/readmes/csa.html" class='readme'>
+          </article>
+        </div>
+      </div>
+
+      <!-- announce web ------------------------------------------------------------------->
+      <div class='project-tile'>
+        <div class='project-object'>
+          <div class='project-container' onclick="toggle_project_info(this)">
+            <img class='project-object-img' src='resources/img/projects/announce_flask.png'>
+            <div class='project-object-img-overlay'></div>
+            <p class="project-object-name">Announces WebApp</p>
+          </div>
+        </div>
+        <div class='project-info'>
+          <article class='text'>
+            <embed src="resources/readmes/ann.html" class='readme'>
+          </article>
+        </div>
+      </div>
+
+      <!-- gogame ------------------------------------------------------------------->
+      <div class='project-tile'>
+        <div class='project-object'>
+          <div class='project-container' onclick="toggle_project_info(this)">
+            <img class='project-object-img' src='resources/img/projects/gogame_java.png'>
+            <div class='project-object-img-overlay'></div>
+            <p class="project-object-name">Go game</p>
+          </div>
+        </div>
+        <div class='project-info'>
+          <article class='text'>
+            <embed src="resources/readmes/gg.html" class='readme'>
+          </article>
+        </div>
+      </div>
+
+      <!-- woe ------------------------------------------------------------------->
+      <div class='project-tile'>
+        <div class='project-object'>
+          <div class='project-container' onclick="toggle_project_info(this)">
+            <img class='project-object-img' src='resources/img/projects/woe.jpg'>
+            <div class='project-object-img-overlay'></div>
+            <p class="project-object-name">Warrios of Enarthia</p>
+          </div>
+        </div>
+        <div class='project-info'>
+          <article class='text'>
+            <embed src="resources/readmes/woe.html" class='readme'>
+          </article>
+        </div>
+      </div>
+
+      <!-- scrabble_hack  ------------------------------------------------------------------->
+      <div class='project-tile'>
+        <div class='project-object'>
+          <div class='project-container' onclick="toggle_project_info(this)">
+            <img class='project-object-img' src='resources/img/projects/scrabble_hack.png'>
+            <div class='project-object-img-overlay'></div>
+            <p class="project-object-name">Scrabble destroyer</p>
+          </div>
+        </div>
+        <div class='project-info'>
+          <article class='text'>
+            <!--<embed src="resources/readmes/#" class='readme'>-->
+            Simple cheat for scrabbles. 
+          </article>
+        </div>
+      </div>
+
+      <!-- gpa_calc ------------------------------------------------------------------->
+      <div class='project-tile'>
+        <div class='project-object'>
+          <div class='project-container' onclick="toggle_project_info(this)">
+            <img class='project-object-img' src='resources/img/projects/gpa.png'>
+            <div class='project-object-img-overlay'></div>
+            <p class="project-object-name">GPA calculator</p>
+          </div>
+        </div>
+        <div class='project-info'>
+          <article class='text'>
+            <embed src="resources/readmes/gpa.html" class='readme'>
+          </article>
+        </div>
+      </div>
+
+    </div>
+  </section>
 </body>
 
 </html>
