@@ -1,4 +1,4 @@
-<h1 id="grade-point-average-calculator">Grade Point Average Calculator</h1>
+<h1 id="grade-point-average-calculator"><a href="https://github.com/sqoshi/gpa-calculator" >Grade Point Average Calculator</a></h1>
 <h2 id="table-of-contents">Table of contents</h2>
 <ul>
   <li><a href="#Introduction">Introduction</a></li>
@@ -11,7 +11,7 @@
 <h2 id="introduction">Introduction</h2>
 <p>React application to convert grades from Polish or U.S grades system to GPA world system and
   compute grade point average according to formula from Stanford University.
-  <img src="public/img/page.png" alt="IMG">
+  <img style='width:100%;' src="https://raw.githubusercontent.com/sqoshi/gpa-calculator/master/public/img/page.png" alt="IMG">
 </p>
 <h2 id="general-info">General info</h2>
 <p>Grades can be inserted manually or you can input a file with xls extension. </p>
@@ -24,7 +24,7 @@
 <p>Program accepts XLS files generated straight from JSOS (
   for Wrocław University of Science and Technology Students).</p>
 <p>Data Sample if you do not want to enter it manually:
-  <img src="public/img/data.png" alt="IMG">
+  <img style='width:100%;' src="https://raw.githubusercontent.com/sqoshi/gpa-calculator/master/public/img/data.png" alt="IMG">
 </p>
 <h3 id="data-formating-">Data formating:</h3>
 <ul>
@@ -32,63 +32,42 @@
   <li>Values from rows like &#39;(E)&#39; are taken into account.</li>
 </ul>
 <h4 id="example-results">Example Results</h4>
-<p><img src="public/img/result.png" alt="IMG"></p>
+<p><img style='width:100%;' src="https://raw.githubusercontent.com/sqoshi/gpa-calculator/master/public/img/result.png" alt="IMG"></p>
 <h2 id="code-example">Code Example</h2>
-<p style='font-size:1vw;'>```javascript 1.8
+<p style='font-size:1vw;'>
+<pre style="font-size: 1.5vw;"><code>
   class InputComponent extends Component {
   state = {
   renderView: 0,
   };
   render() {
   return (
-<div className={"input-element"}>
-  <label>ECTS<input class="ects-in" value={this.props.val_ects} type="text"></input></label>
-  <label> <input class="grades-in" value={this.props.val_grade} type="text"></input> Grade</label>
-</div>
-);
-}
-}</p>
-<pre><code>
-
-<span class="clean">
-## Launch
-
-In the project directory, you can run:
-### `npm start`
-Runs the app <span class="hljs-keyword">in</span> the development mode.\
-Open [http:<span class="hljs-comment">//localhost:3000](http://localhost:3000) to view it in the browser.</span>
-The page will reload <span class="hljs-keyword">if</span> you make edits.\
-You will also see any lint errors <span class="hljs-keyword">in</span> the console.
-
-
-## Installation
-### `npm  install --scripts-prepend-node-path=auto`
-Builds the app for production <span class="hljs-keyword">in</span> the current folder.
-
-It correctly bundles React <span class="hljs-keyword">in</span> production mode and optimizes
-the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https:<span class="hljs-comment">//facebook.github.io/create-react-app/docs/deployment) for more information.</span>
-
-
-## Technologies
-- ReactJS
-- Javascript
-- Xlsx
-
-And <span class="hljs-keyword">code</span> highlighting:
-
-```js
-var foo = <span class="hljs-string">'bar'</span>;
-
-function baz(s) {
-   return foo + <span class="hljs-string">':'</span> + s;
-}</span>
+&lt div className={"input-element"} &gt
+  &lt label &gt ECTS &lt input class="ects-in" value={this.props.val_ects} type="text" &gt &lt/input &gt &lt/label&gt
+  &lt label &gt  &lt input class="grades-in" value={this.props.val_grade} type="text" &gt &lt/input &gt Grade &lt/label&gt
+&lt/div &gt
+);}}
 </code></pre>
-<p>Or inline code like <code>var foo = &#39;bar&#39;;</code>.</p>
-<p>Or an image of bears</p>
-<p><img src="http://placebear.com/200/200" alt="bears"></p>
-<p>The end ...</p>
+
+<h2 class="code-line" data-line-start=0 data-line-end=1><a id="Launch_0"></a>Launch</h2>
+<p class="has-line-data" data-line-start="2" data-line-end="3">In the project directory, you can run:</p>
+<h3 class="code-line" data-line-start=3 data-line-end=4><a id="npm_start_3"></a><code>npm start</code></h3>
+<p class="has-line-data" data-line-start="4" data-line-end="8">Runs the app in the development mode.<br>
+  Open <a href="http://localhost:3000">http://localhost:3000</a> to view it in the browser.<br>
+  The page will reload you make edits.<br>
+  You will also see any lint errors  the console.</p>
+<h2 class="code-line" data-line-start=10 data-line-end=11><a id="Installation_10"></a>Installation</h2>
+<h3 class="code-line" data-line-start=11 data-line-end=12><a id="npm_install_scriptsprependnodepathauto_11"></a><code>npm install --scripts-prepend-node-path=auto</code></h3>
+<p class="has-line-data" data-line-start="12" data-line-end="13">Builds the app for production the current folder.</p>
+<p class="has-line-data" data-line-start="14" data-line-end="16">It correctly bundles React production mode and optimizes<br>
+  the build for the best performance.</p>
+<p class="has-line-data" data-line-start="17" data-line-end="19">The build is minified and the filenames include the hashes.<br>
+  Your app is ready to be deployed!</p>
+<p class="has-line-data" data-line-start="20" data-line-end="21">See the section about [deployment] <a
+    href="//facebook.github.io/create-react-app/docs/deployment">CLICK</a> for more information.</p>
+<h2 class="code-line" data-line-start=23 data-line-end=24><a id="Technologies_23"></a>Technologies</h2>
+<ul>
+  <li class="has-line-data" data-line-start="24" data-line-end="25">ReactJS</li>
+  <li class="has-line-data" data-line-start="25" data-line-end="26">Javascript</li>
+  <li class="has-line-data" data-line-start="26" data-line-end="27">Xlsx</li>
+</ul>

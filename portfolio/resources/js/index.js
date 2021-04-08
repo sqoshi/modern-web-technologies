@@ -13,27 +13,29 @@ function toggle_menu() {
 function displayNextImage() {
   x = (x === images.length - 1) ? 0 : x + 1;
   document.getElementById("project-img").style.backgroundSize = 'cover'
-  document.getElementById("project-img").src = images[x];
+  document.getElementById("project-img").src = "resources/img/projects/" + images[x];
 }
 
 function displayPreviousImage() {
   x = (x <= 0) ? images.length - 1 : x - 1;
   document.getElementById("project-img").style.backgroundSize = 'cover'
-  document.getElementById("project-img").src = images[x];
+  document.getElementById("project-img").src = "resources/img/projects/" + images[x];
 }
 
 function startTimer() {
-  setInterval(displayNextImage, 6000);
+  setInterval(displayNextImage,3000);
 }
 
-var images = ['resources/img/projects/nnb.png',
-    'resources/img/projects/csa.png',
-    'resources/img/projects/gwi.png',
-    'resources/img/projects/shopping_bot.png',
-    'resources/img/projects/announce_flask.png',
-    'resources/img/projects/gogame_java.png',
-    'resources/img/projects/scrabble_hack.png',
-    'resources/img/projects/gpa.png',
-    'resources/img/projects/woe.jpg',
+var images = [
+  'nnb.png',
+    'csa.png',
+    'gwi.png',
+    'shopping_bot.png',
+    'announce_flask.png',
+    'gogame_java.png',
+    'scrabble_hack.png',
+    'gpa.png',
+    'woe.jpg',
+    'portfolio.png',
   ],
   x = -1;

@@ -1,3 +1,4 @@
+/* mobile */
 body {
   background-color: white;
 }
@@ -40,7 +41,6 @@ body {
   margin-top: 8vw;
   margin-bottom: 8vw;
   height: 40vw;
-  background: blue;
 }
 
 .project-container {
@@ -119,13 +119,28 @@ body {
   padding-left: 10%;
   padding-right: 10%;
   padding-bottom: 2rem;
+  -webkit-overflow-scrolling: touch
+  /* error in readme safari
+  overflow: auto;*/
 }
 
 .readme {
   min-height: 50vw;
+  /* error in readme safari
+  -webkit-overflow-scrolling: touch;*/
 }
 
 .readme pre, code {
+  overflow: auto;
   max-width: 80%;
-  font-size:
+}
+
+
+@media screen and (min-width: 1150px) {
+  .project-object{
+    margin-bottom: 1vw;
+  }
+  .project-info{
+    padding-top: 4vw;
+  }
 }

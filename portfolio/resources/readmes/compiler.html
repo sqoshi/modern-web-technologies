@@ -1,4 +1,4 @@
-<h1 id="compiler">Compiler</h1>
+<h1 id="compiler"><a href='https://github.com/sqoshi/compiler'>Compiler</a></h1>
 <h2 id="table-of-contents">Table of contents</h2>
 <ul>
   <li><a href="#installation">Installation</a></li>
@@ -14,12 +14,11 @@
 <pre><code class="lang-shell"><span class="hljs-attribute">make</span>
 </code></pre>
 <p>or</p>
-<p>```shell script
+<p>
   bash install.sh</p>
 <pre><code>
-
 <span class="mipsasm">If <span class="hljs-keyword">script </span><span class="hljs-keyword">and </span>make would fail than <span class="hljs-keyword">installation </span>need to <span class="hljs-keyword">be </span>done manually:
-```<span class="hljs-keyword">shell
+<span class="hljs-keyword">shell
 </span>sudo apt update
 sudo apt <span class="hljs-keyword">install </span>python3
 sudo apt <span class="hljs-keyword">install </span>python3-pip
@@ -32,17 +31,18 @@ sudo pip3 install numpy==<span class="hljs-number">1.19</span><span class="hljs-
 sudo pip3 install ply==<span class="hljs-number">3.11</span>
 </code></pre>
 <h2 id="launch">Launch</h2>
-<p>```shell script
+<p>
   python3 kompilator.py in_file out_file</p>
 <pre><code>
-## Introduction
+  <h2 id="Introduction">Introduction</h2>
+
 
 Compiler takes some code <span class="hljs-keyword">in</span> <span class="hljs-keyword">Pascal</span>- like imperative language
  defined <span class="hljs-keyword">by</span> grammar <span class="hljs-keyword">in</span> general info section <span class="hljs-keyword">and</span> produces
 a machine code which <span class="hljs-keyword">is</span> accepted <span class="hljs-keyword">by</span> a
 <span class="hljs-keyword">virtual</span> machine attached <span class="hljs-keyword">in</span> working tree( maszyna-wirtualna).
-
-### Example <span class="hljs-keyword">of</span> imperative language (binary notation <span class="hljs-keyword">of</span> a number)
+<h2 id="CodeExample">Code Example</h2>
+ <span class="hljs-keyword">of</span> imperative language (binary notation <span class="hljs-keyword">of</span> a number)
 ```python
 <span class="hljs-number">1</span> DECLARE
 <span class="hljs-number">2</span>   n,p

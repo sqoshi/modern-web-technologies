@@ -1,3 +1,4 @@
+/**mobile**/
 body, html {
   /*min-width:600px;*/
   /*min-height: 300px;*/
@@ -76,14 +77,12 @@ body, html {
 
 .hamburger-rect {
   fill: rgb(255, 255, 255);
-  width: 100px;
-  height: 20px;
 }
 
 /******************** image **********************/
 #avatar-cropper {
   overflow: hidden;
-  border-radius: 50%;
+  border-radius: 50vw;
   margin: 0 auto;
   height: 60vw;
   width: 60vw;
@@ -130,6 +129,8 @@ body, html {
   padding-bottom: 20rem;
   width: 80%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .interests-title {
@@ -231,7 +232,7 @@ body, html {
   padding: 5vw 10vw;
   border: none;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 1vw;
 }
 
 #project-href:hover, #project-href:active {
@@ -305,4 +306,105 @@ body, html {
 
 .contact-reference:hover, .contact-reference:active {
   background-color: rgba(85, 85, 85, 1);
+}
+
+@media screen and (min-width: 1150px) {
+
+  /*----- menu -----*/
+  #menu-header {
+    height: 40px;
+  }
+
+  #menu-icon {
+    transform: scale(0.5);
+  }
+
+  #menu .link {
+    font-size: 2vw;
+  }
+
+  /* avatar section */
+  #intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #avatar-cropper {
+    height: 20vw;
+    width: 20vw;
+  }
+
+  #intro-container {
+    margin-top: 10vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #it-interests-text-container {
+    padding-top: 0%;
+    display: flex;
+    flex-direction: row;
+    font-size: 1vw;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    gap: 2vw;
+  }
+
+  #it-interests {
+    width: 100%;
+  }
+
+  #it-interests-container {
+    margin-top: 5vw;
+  }
+
+  #it-interests-container .column {
+    margin-left: 4%;
+    margin-right: 4%;
+  }
+
+  .interests-title {
+    font-size: 1.5vw;
+  }
+
+  .section-header {
+    font-size: 2vw;
+  }
+
+  /* skills */
+  .skills-header {
+    font-size: 1.5vw;
+  }
+
+  .skills-subheader {
+    font-size: 1.1vw;
+  }
+
+  .skills-list {
+    font-size: 1.0vw;
+  }
+
+  /* projects */
+  #project-img {
+    height: 90vh;
+  }
+
+  /*contact*/
+  #contact-references-container {
+    display: flex;
+    flex-direction: row;
+    gap: 5vw;
+    border: solid;
+    border-radius: 30px;
+    border-color: rgba(136, 144, 189, 0.23);
+    border-width: 3px;
+    padding-bottom: 5vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
+  }
 }

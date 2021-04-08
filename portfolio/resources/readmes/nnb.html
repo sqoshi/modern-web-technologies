@@ -1,4 +1,4 @@
-<h1 id="neural-network-designer">Neural Network Designer</h1>
+<h1 id="neural-network-designer"><a href='https://github.com/sqoshi/neural-network-designer'>Neural Network Designer<a /></h1>
 <h2 id="table-of-contents">Table of contents</h2>
 <ul>
   <li><a href="#Introduction">Introduction</a></li>
@@ -9,21 +9,23 @@
   <li><a href="#installation">Installation</a></li>
   <li><a href="#launch">Launch</a></li>
   <li>
-    <p><a href="#license">License</a></p>
-    <h2 id="introduction">Introduction</h2>
-    <p>Web application has been created for developers to help them optimize or directly find optimal neural network according to
-      their problem. Since almost everything can be stated as mathematical evidence( function) therefore possibilities of this application are unlimited.
-      So let&#39;s suppose our company have some problem. Firstly we need to figure out what we want to maximalize, minimalize and want does not touching our interest.
-      When we already found out that, we can state our problem as a mathematical evidence for example
-      <code>f(x)=x^2+5*x-73</code>.
-      Now we want to find a neural network
-      prototype that will be best(good enough) to solve our problem.
-      When we are designing neural network model we need to select quantity of layer, neurons ( on each layer), activation functions and much more of things like these.
-      To sum up application for stated problem can choose optimal activations, layers number, neurons quantity etc. It can save a lot of developer time and save some time to play a chess round or spend time with family.
-    </p>
-    <h2 id="code-example">Code Example</h2>
-    <p>Main Loop of simulated annealing</p>
-    <pre style='font-size:1vw;'><code class="lang-python">      <span class="hljs-keyword">while</span> get_time() &lt;= end_time and T &gt; <span class="hljs-number">0</span>:<span class="hljs-type"></span>
+    <a href="#license">License</a>
+  </li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>Web application has been created for developers to help them optimize or directly find optimal neural network according to
+  their problem. Since almost everything can be stated as mathematical evidence( function) therefore possibilities of this application are unlimited.
+  So let&#39;s suppose our company have some problem. Firstly we need to figure out what we want to maximalize, minimalize and want does not touching our interest.
+  When we already found out that, we can state our problem as a mathematical evidence for example
+  <code>f(x)=x^2+5*x-73</code>.
+  Now we want to find a neural network
+  prototype that will be best(good enough) to solve our problem.
+  When we are designing neural network model we need to select quantity of layer, neurons ( on each layer), activation functions and much more of things like these.
+  To sum up application for stated problem can choose optimal activations, layers number, neurons quantity etc. It can save a lot of developer time and save some time to play a chess round or spend time with family.
+</p>
+<h2 id="code-example">Code Example</h2>
+<p>Main Loop of simulated annealing</p>
+<pre style='font-size:1vw;'><code class="lang-python">      <span class="hljs-keyword">while</span> get_time() &lt;= end_time and T &gt; <span class="hljs-number">0</span>:<span class="hljs-type"></span>
           T *= scale
 
           <span class="hljs-keyword">new</span><span class="hljs-type">_neurs</span>, <span class="hljs-keyword">new</span><span class="hljs-type">_acts</span> = get_random_model_scheme() <span class="hljs-keyword">if</span> self.data[
@@ -51,10 +53,10 @@
           <span class="hljs-keyword">if</span> step % step_limit and self.data[<span class="hljs-string">'first_mse'</span>] == best_mse:<span class="hljs-type"></span>
               neurs, acts = get_random_model_scheme()
 </code></pre>
-  </li>
+</li>
 </ul>
 <h4 id="example-model-structure-in-png-format-">Example model structure in PNG format.</h4>
-<p><img src="static/images/model.png" alt="IMG"></p>
+<p><img style='width:100%;' src="https://raw.githubusercontent.com/sqoshi/neural-network-designer/master/static/images/model.png" alt="IMG"></p>
 <h2 id="general-info">General Info</h2>
 <ul>
   <li>Every model that is being created or improved for given function is stored using postgres in database and assigned to it&#39;s creator ;).</li>
@@ -105,7 +107,7 @@
   </tbody>
 </table>
 <h4 id="example-results">Example results</h4>
-<p><img src="static/images/results_example.png" alt="IMG"></p>
+<p><img style='width:100%;' src="https://raw.githubusercontent.com/sqoshi/neural-network-designer/master/static/images/results_example.png" alt="IMG"></p>
 <h2 id="installation">Installation</h2>
 <p>You need to have software for every technology described in <a href="#technologies">Technologies</a> installed via pip
   and some more:</p>
