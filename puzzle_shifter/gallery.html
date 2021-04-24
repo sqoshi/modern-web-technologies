@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" href="resources/img/puzzle_icon.png">
+  <link rel="stylesheet" href="resources/css/gallery.css"/>
+  <script type="text/javascript" src="resources/js/gallery.js"></script>
+</head>
+
+<body onload="loadImagesAll()">
+  <h1>Shift Game</h1>
+  <div class="column">
+    <div id="setup">
+      <div id="inputs-holder">
+        <label class="inputs" id="columns-label" for="columns">Columns (between 0 and 20): </label>
+        <input class="inputs" type="range" class="scaler" id="columns" value=4 min="0" max="20">
+        <label class="inputs" id="rows-label" for="rows">Rows (between 0 and 20): </label>
+        <input class="inputs" type="range" class="scaler" id="rows" value=4 min="0" max="20">
+      </div>
+      <div id="gallery-container">
+        <div id="gallery"> </div>
+      </div>
+      <button id="play-button" onClick="open_puzzle()" value="Play"></button>
+    </div>
+
+  </div>
+</body>
+</html>
