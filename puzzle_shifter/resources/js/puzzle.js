@@ -25,6 +25,16 @@ let TILE_TYPE = {
   OTHER: "other"
 };
 
+function getPath(name, quality = "LOW") {
+  var path = null;
+  if (quality == "LOW") {
+    path = "resources/img/low_quality/" + name + ".jpg";
+  } else {
+    path = "resources/img/high_quality/" + name + ".jpg";
+  }
+  return path
+}
+
 /**
  * Restores setup values from configuration page.
  * Initializes Board to play puzzle, inserting image.
@@ -127,20 +137,80 @@ function play() {
  */
 function setTiles() {
   tiles = Array(rows);
+  tileIndex = 0;
   for (let i = 0; i < rows; i++) {
     tiles[i] = new Array(columns);
     for (let j = 0; j < columns; j++) {
       let tile = {};
       tile.targetX = j;
       tile.targetY = i;
+      tile.index = tileIndex;
       tiles[i][j] = tile;
       if (i === 0 && j === 0) {
         fuzzyTile = tile;
       }
+      tileIndex++;
+
     }
   }
 }
 
+function getInvCount(arr, N) {
+
+  inv_count = 0;
+  for (let i = 0; i < N * N - 1; i++) {
+    for (let j = i + 1; j < N * N; j++) {
+      if (arr[j] && arr[i] && arr[i].index > arr[j].index)
+        inv_count++;
+    }
+  }
+  return inv_count;
+}
+
+function findXPosition(arr2D, N) {
+  for (let i = N - 1; i >= 0; i--)
+    for (let j = N - 1; j >= 0; j--)
+      if (arr2D[i][j] == 0)
+        return N - i;
+}
+
+function shuffleArray2D(array) {
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < columns; j++) {
+      let k = parseInt((Math.random() * rows) + "");
+      let l = parseInt((Math.random() * columns) + "");
+      let tmp = array[i][j];
+      array[i][j] = array[k][l];
+      array[k][l] = tmp;
+    }
+  }
+  if (isSolvable(array)) {
+    return array;
+  } else {
+    console.log("retry")
+    return shuffleArray2D(array);
+  }
+}
+
+function isSolvable(arr2D) {
+  arr = [];
+  for (var i = 0; i < arr2D.length; i++) {
+    arr = arr.concat(arr2D[i]);
+  }
+  let N = arr.length;
+
+  invCount = getInvCount(arr, N);
+  if (N % 1 == 0)
+    return !(invCount & 1);
+
+  else {
+    pos = findXPosition(arr2D, N);
+    if (pos % 1 == 0)
+      return !(invCount % 1 == 0);
+    else
+      return invCount % 1 == 0;
+  }
+}
 /**
  * Responsible for shuffling a board.
  *
@@ -149,15 +219,8 @@ function setTiles() {
  */
 function distractBoard() {
   /*shuffle array*/
-  for (let i = 0; i < rows; i++) {
-    for (let j = 0; j < columns; j++) {
-      let k = parseInt((Math.random() * rows) + "");
-      let l = parseInt((Math.random() * columns) + "");
-      let tmp = tiles[i][j];
-      tiles[i][j] = tiles[k][l];
-      tiles[k][l] = tmp;
-    }
-  }
+  tiles = shuffleArray2D(tiles);
+
 
   boardContext.clearRect(0, 0, boardWidth, boardHeight);
   for (let i = 0; i < rows; i++) {
@@ -304,6 +367,8 @@ function isEnd() {
  */
 function reset() {
   isPlaying = false;
+  board = document.getElementById('board');
+  boardContext = board.getContext('2d');
   board.onmousedown = null;
   board.onmousemove = null;
   board.onmouseleave = null;
@@ -329,4 +394,12 @@ function onTileHover(e) {
   } else {
     lastDisplayedTile = null;
   }
+}
+
+/**
+ * Set scalers in hidden menu to session values or default.
+ */
+function setSessionSizeInScalers() {
+  document.getElementById("columns").value = sessionStorage.getItem("columnsNumber");
+  document.getElementById("rows").value = sessionStorage.getItem("rowsNumber");
 }

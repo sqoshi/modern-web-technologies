@@ -5,18 +5,32 @@
   <meta charset="UTF-8">
   <link rel="icon" href="resources/img/puzzle_icon.png">
   <link rel="stylesheet" href="resources/css/puzzle.css" />
+  <link rel="stylesheet" href="resources/css/gallery_shortcut.css" />
   <script type="text/javascript" src="resources/js/puzzle.js"></script>
+  <script type="text/javascript" src="resources/js/gallery.js"></script>
+  <script type="text/javascript" src="resources/js/gallery_shortcut.js"></script>
   <title>Puzzle</title>
 </head>
 
 
-<body onload="setUpGame();">
+<body onload="setUpGame();loadImagesAll();setSessionSizeInScalers();">
   <div id="board-container">
     <canvas id="board"></canvas>
   </div>
   <input class="button" id="distract-button" type="button" value="Distract" onclick="play();">
   <input class="button" id="reset-button" type="button" value="Reset" onclick="reset();">
-  <input class="button" id="setup-button" type="button" value="Setup" onclick="">
+  <input class="button" id="setup-button" type="button" value="Setup" onclick="setupToggle();">
+  <div id="setup-panel">
+    <div id="setup">
+      <div id="inputs-holder">
+        <label class="inputs" id="columns-label" for="columns">Columns (between 0 and 20): </label>
+        <input class="inputs scaler" type="range" id="columns" value=4 min="0" max="20" onchange="onScalerChange()" oninput="onScalerChange()">
+        <label class="inputs" id="rows-label" for="rows">Rows (between 0 and 20): </label>
+        <input class="inputs scaler" type="range" id="rows" value=4 min="0" max="20" onchange="onScalerChange()" oninput="onScalerChange()">
+      </div>
+      <div id="gallery"> </div>
+    </div>
+  </div>
 </body>
 
 

@@ -1,6 +1,6 @@
 body,
 html {
-  color: wheat;
+  color: white;
   background-color: #151515;
   height: 100%;
   width: 100%;
@@ -14,23 +14,16 @@ html {
 }
 
 #board {
-  /* display: table;
-  margin: 0 auto; */
-  /* position: absolute;
-  top: 25%;
-  margin: auto;
-  background-color: blue; */
   position: absolute;
-  /*Can also be `fixed`*/
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   margin: auto;
-  /*Solves a problem in which the content is being cut when the div is smaller than its' wrapper:*/
   max-width: 100%;
   max-height: 100%;
   overflow: auto;
+  cursor: pointer;
 }
 
 #setup-button {
@@ -49,7 +42,7 @@ html {
 }
 
 .button {
-  font-size: 50%;
+  font-size: 20px;
   align-items: center;
   text-align: center;
   cursor: pointer;
@@ -61,6 +54,26 @@ html {
   box-shadow: 0 0 10px rgba(35, 173, 278, 1);
 }
 
-.button:hover {
+#setup-button {
+  z-index: 1;
+}
+
+.button:hover, .button:active {
+  box-shadow: 0 0 20px rgba(35, 173, 278, 1);
+  background: #151515;
+  color: white;
+}
+
+#setup-panel {
+  transition: 5s ease-in;
+  background: rgba(35, 173, 278, 1);
+  display: block;
+  position: absolute;
+  border-radius: 15px;
+  margin: 15px;
+  left: 15px;
+  right: 15px;
+  top: 15px;
+  bottom: 15px;
   box-shadow: 0 0 20px rgba(35, 173, 278, 1);
 }

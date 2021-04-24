@@ -28,13 +28,12 @@ function loadImagesAll() {
 
     var container = document.createElement("div");
     container.classList.add("image-container");
-    // container.id = `image-container${i}`;
 
     var el = document.createElement("div");
     el.classList.add("image");
     el.id = `image${i}`;
     el.onclick = function() {
-      handle_image_click(this);
+      handleImageClick(this);
     };
 
     container.appendChild(el);
@@ -57,9 +56,8 @@ function insertImage(path, i) {
 }
 
 
-function handle_image_click(element) {
+function handleImageClick(element) {
   markImage(element);
-
 }
 
 function markImage(element) {
@@ -74,7 +72,7 @@ function markImage(element) {
 
 
 
-function open_puzzle() {
+function openPuzzle() {
   var imagePath = getPath(markedImage, quality = "HIGH");
   var columnsNumber = document.getElementById("columns").value;
   var rowsNumber = document.getElementById("rows").value;
@@ -90,27 +88,27 @@ function open_puzzle() {
 // Not using below code, but can be used in future extension
 
 function hide_gallery() {
-  toggle_element(document.getElementById("rows"));
-  toggle_element(document.getElementById("columns"));
-  toggle_element(document.getElementById("rows-label"));
-  toggle_element(document.getElementById("columns-label"));
+  toggleElement(document.getElementById("rows"));
+  toggleElement(document.getElementById("columns"));
+  toggleElement(document.getElementById("rows-label"));
+  toggleElement(document.getElementById("columns-label"));
 
 
   var image_containers = document.getElementsByClassName('image-container');
   for (let container of image_containers) {
-    toggle_element(container);
+    toggleElement(container);
   }
 
   var inputs = document.getElementsByClassName('inputs');
   for (let el of inputs) {
-    toggle_input(el);
+    toggleInput(el);
   }
 
 }
 
 
 
-function toggle_element(element) {
+function toggleElement(element) {
   if (!element.style.maxHeight) {
     element.style.maxHeight = 0;
   } else {
@@ -119,7 +117,7 @@ function toggle_element(element) {
   }
 }
 
-function toggle_input(element) {
+function toggleInput(element) {
   if (element.style.display == "none") {
     element.style.display = "block";
   } else {
