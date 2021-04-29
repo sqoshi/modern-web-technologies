@@ -42,7 +42,7 @@ html {
 }
 
 .button {
-  font-size: 20px;
+  font-size: 2vh;
   align-items: center;
   text-align: center;
   cursor: pointer;
@@ -51,7 +51,7 @@ html {
   height: 9vh;
   width: 9vh;
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(35, 173, 278, 1);
+  box-shadow: 0 0 10px rgba(35, 173, 255, 1);
 }
 
 #setup-button {
@@ -59,14 +59,29 @@ html {
 }
 
 .button:hover, .button:active {
-  box-shadow: 0 0 20px rgba(35, 173, 278, 1);
+  box-shadow: 0 0 20px rgba(35, 173, 255, 1);
   background: #151515;
   color: white;
 }
-
+@keyframes myAnimation{
+  0%{
+    opacity: 0;
+    transform: rotateX(90deg);
+  }
+  50%{
+    opacity: 0.7;
+    transform: rotateX(0deg);
+  }
+  100%{
+    opacity: 1;
+  }
+}
 #setup-panel {
-  transition: 5s ease-in;
-  background: rgba(35, 173, 278, 1);
+  animation-name: myAnimation;
+  animation-duration: 1500ms;
+  animation-fill-mode: backwards;
+  color: white;
+  background: rgba(35, 173, 255, 1);
   display: block;
   position: absolute;
   border-radius: 15px;
@@ -75,5 +90,5 @@ html {
   right: 15px;
   top: 15px;
   bottom: 15px;
-  box-shadow: 0 0 20px rgba(35, 173, 278, 1);
+  box-shadow: 0 0 20px rgba(35, 173, 255, 1);
 }

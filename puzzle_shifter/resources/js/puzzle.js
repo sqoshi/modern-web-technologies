@@ -187,7 +187,6 @@ function shuffleArray2D(array) {
   if (isSolvable(array)) {
     return array;
   } else {
-    console.log("retry")
     return shuffleArray2D(array);
   }
 }
@@ -394,12 +393,4 @@ function onTileHover(e) {
   } else {
     lastDisplayedTile = null;
   }
-}
-
-/**
- * Set scalers in hidden menu to session values or default.
- */
-function setSessionSizeInScalers() {
-  document.getElementById("columns").value = sessionStorage.getItem("columnsNumber");
-  document.getElementById("rows").value = sessionStorage.getItem("rowsNumber");
 }
