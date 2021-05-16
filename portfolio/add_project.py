@@ -4,7 +4,7 @@ def run_script(name,file_name="projects.html"):
     with open(file_name) as inf:
         txt = inf.read()
         soup = bs4.BeautifulSoup(txt)
-    
+
     with open(f"{file_name.split('.')[0]}_copy.html", "w+") as fc:
         fc.write(str(soup.prettify()))
 
@@ -40,4 +40,5 @@ def run_script(name,file_name="projects.html"):
 try:
     run_script(sys.argv[1])
 except:
+    msg = "usag"
     raise RuntimeError("Sorry, something went wrong. Maybe you have forgot to input name of new project as argument.")

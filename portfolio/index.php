@@ -1,0 +1,171 @@
+<?php
+session_start();
+require_once "config.php";
+?>
+<html lang='en'>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+  <link rel="stylesheet" href="resources/css/index.css">
+  <script src="resources/js/index.js"></script>
+  <title>popisite</title>
+</head>
+
+<body onload="startTimer()">
+  <?php
+  include('menu.php');
+  ?>
+  <div id='hero'>
+    <div class='column' id='intro-container'>
+      <div id='intro'>
+        <h1> Computer Science Student & Software Developer </h1>
+        <p> I am currently studying at Wroclaw University Of Science and Technology and working in NOKIA.
+      </div>
+      <div id='avatar-cropper'>
+        <img id='avatar' src='resources/img/avatar_face.png' alt='avatar' />
+      </div>
+    </div>
+  </div>
+  <div id='it-interests-container'>
+    <div class='column'>
+      <section id='it-interests' class='content'>
+        <h4 class='section-header'>Interests</h4>
+        <div id='it-interests-text-container'>
+          <div class='interests-element'>
+            <a href='https://en.wikipedia.org/wiki/Metaheurisstic'>
+              <h5 class='interests-title'>Metaheuristics</h5>
+            </a>
+            Metaheuristics are algorithms used in optimization problems.
+            As an input they usually take reasearch time limit and an initial solution.
+            With various operations
+            like mutations, choosing an neighborhood, crossovers etc., changing
+            initial solution more or less randomly.
+            During research they estimate quality of encountered candidates.
+            The most popular calssifaction is to divide them into single-solution and population-based.
+            In optimization problems we encounter problem as local optimum.
+            There are some tricks used in Metaheuristics that allow us to escape from this places.
+            In matehmatical optimization and computer science
+            they may provide a sufficiently good solution to an optimization problem.
+            The problem with them is that they do not guarantee globally optimal
+            solution for some classes of problems. Some of my implementations can be found <a href='https://github.com/sqoshi/metaheuristic-alghoritms'>here</a>.
+          </div>
+          <div class='interests-element'>
+            <a href='https://en.wikipedia.org/wiki/Machine_learning'>
+              <h5 class='interests-title'>Machine Learning</h5>
+            </a>
+            If machine learning is an aspect of artificial intelligence, then
+            <a href='https://en.wikipedia.org/wiki/Deep_learning'>deep learning</a> is an aspect of machine learning — furthermore, it
+            is a form of machine learning that applies <a href='https://en.wikipedia.org/wiki/Neural_networks'>neural networks</a>.
+            I have worked few times with neural networks and linear regression. Neural networks can be used to solve a lot of problems.
+            For example we can solve a lot of exploration problems by learning neural network
+            to predict future data basing on the data you have.
+            Neural networks can also solve a lot of recognition problems like object
+            detection on image, or camera. Can be used for clustering problem in directed and undirected graphs.
+            We could say the possibilities are endless. Some interesting uses can be found on my
+            <a href='https://github.com/sqoshi'>github</a>.
+          </div>
+          <div class='interests-element'>
+            <h5 class='interests-title'>Other</h5>
+            As long as I devote myself to work and study, I do not really have a lot of free time.
+            One of my dreams is to conquer one of the world's greatest peaks, I also like to play computer games :)!
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div id='skills-container' class='move-up'>
+    <div class='column move-up'>
+      <div id='skills-overlay'>
+        <section id='skills' class="content">
+          <h4 class='section-header'>Skills</h4>
+          <div class='skills-element'>
+            <h4 class='skills-header'>Programming Languages</h4>
+            <ul class='skills-list'>
+              <li>Python</li>
+              <li>Java</li>
+              <li>Bash</li>
+              <li>JavaScript</li>
+              <li>Julia</li>
+            </ul>
+          </div>
+          <div class='skills-element'>
+            <h4 class='skills-header'>Frameworks</h4>
+            <ul class='skills-list'>
+              <li>Django</li>
+              <li>Flask</li>
+              <li>Tensorflow</li>
+              <li>Selenium</li>
+              <li>React</li>
+            </ul>
+          </div>
+          <div class='skills-element'>
+            <h4 class='skills-header'>Web Technologies</h4>
+            <ul class='skills-list'>
+              <li>CSS</li>
+              <li>HTML</li>
+            </ul>
+          </div>
+          <div class='skills-element'>
+            <h4 class='skills-header'>Databases</h4>
+            <h5 class='skills-subheader'>SQL</h5>
+            <ul class='skills-list'>
+              <li>MySQL</li>
+              <li>PostgreSQL</li>
+              <li>SQLite</li>
+            </ul>
+
+            <h5 class='skills-subheader'>NoSQL</h5>
+            <ul class='skills-list'>
+              <li>MongoDB</li>
+              <li>Firebase(JCS)</li>
+            </ul>
+          </div>
+          <div class='skills-element last-skills-element'>
+            <h4 class='skills-header'>Foreign Languages</h4>
+            <ul class='skills-list'>
+              <li>Polish Native</li>
+              <li>English B2/C1</li>
+              <li>German A1</li>
+              <li>Norwegian [Beginner]</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <h4 class='skills-header'>Projects</h4>
+  <div id='projects'>
+    <div id='projects-container'>
+      <img id="project-img" src="resources/img/projects/shopping_bot.png" alt='sb' />
+      <input id='project-href' type="button" onclick="location.href='projects.html';" value="Go to Projects" />
+      <div id='project-left-arrow'>
+        <div class='arrow left' onclick="displayPreviousImage()"></div>
+      </div>
+      <div id='project-right-arrow'>
+        <div class='arrow right' onclick="displayNextImage()"></div>
+      </div>
+    </div>
+  </div>
+  <div id='contact'>
+    <section class="column">
+      <h4 class='skills-header'>Contact references</h4>
+      <div id='contact-references-container'>
+        <a href="mailto:piotrpopis@icloud.com" class='contact-reference'>
+          <img src='resources/img/logos/mail.png' class='contact-reference-img' alt='mail' />
+        </a>
+        <a href='https://www.linkedin.com/in/piotr-popis/' class='contact-reference'>
+          <img src='resources/img/logos/lin.png' class='contact-reference-img' alt='lin' />
+        </a>
+        <a href='https://www.github.com/sqoshi' class='contact-reference'>
+          <img src='resources/img/logos/git.png' class='contact-reference-img' alt='git' />
+        </a>
+        <a href='https://www.facebook.com/piotr.popis' class='contact-reference'>
+          <img src='resources/img/logos/fb.png' class='contact-reference-img' alt='fb' />
+        </a>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>
