@@ -168,4 +168,8 @@ require_once "config.php";
   </div>
 </body>
 
+<?php
+include('views_counter.php');
+?>
+
 </html>

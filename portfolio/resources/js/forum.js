@@ -1,10 +1,14 @@
-function setImage(filename = "woe.jpg") {
+var project = ""
+
+function setImage() {
+    let url = new URLSearchParams(window.location.search);
+    let c = url.get("image-name");
+    if (c != null)
+        project = c
+    console.log("image", c)
+    console.log("project", project)
+        // console.log(document.getElementById('input-project').value)
     var img_el = document.getElementById('project-preview')
-
-    console.log(img_el)
-
-    img_el.src = "resources/img/projects/" + filename
-    img_el.alt = filename
-
-    document.getElementById('input-project').value = filename
+    img_el.src = "resources/img/projects/" + c;
+    document.getElementById('input-project').value = c;
 }
