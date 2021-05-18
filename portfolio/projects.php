@@ -21,7 +21,7 @@ session_start();
   ?>
   <div class="down-right-triangle">
   </div>
-  <div class="up-left-triangle">
+  <div class="up-left-triangle-ext">
   </div>
   </nav>
   <section id="projects-content">

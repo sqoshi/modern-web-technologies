@@ -34,7 +34,6 @@ $stmt = $link->prepare($query);
 $stmt->execute();
 $result = $stmt->get_result();
 echo "<div style='width:100%;display: flex;justify-content: center;'><p>Views: $result->num_rows </p></div>";
-// echo $result->num_rows;
 $stmt->free_result();
 $stmt->close();
 

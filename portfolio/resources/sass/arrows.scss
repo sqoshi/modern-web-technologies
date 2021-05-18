@@ -1,0 +1,36 @@
+@import "colors";
+@import "variables";
+.arrow {
+    border: solid map-get($colors, "white");
+    border-width: 0 2vw 2vw 0;
+    display: inline-block;
+    padding: 2.0vw;
+}
+
+.right {
+    transform: $halfStraightRotateBackwards;
+    -webkit-transform: $halfStraightRotateBackwards;
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+#project-left-arrow {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: $transBackwards;
+    -ms-transform: $transBackwards;
+    cursor: pointer;
+}
+
+#project-right-arrow {
+    position: absolute;
+    top: 50%;
+    left: 95%;
+    transform: $transBackwards;
+    -ms-transform: $transBackwards;
+    cursor: pointer;
+}

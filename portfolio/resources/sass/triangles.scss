@@ -1,0 +1,26 @@
+@import "colors";
+@import "variables";
+%triangle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-attachment: fixed;
+}
+
+.down-right-triangle {
+    @extend %triangle;
+    background: map-get($colors, "bcg-dark");
+    clip-path: polygon(100% 53%, 0% 100%, 100% 100%);
+}
+
+.up-left-triangle {
+    @extend %triangle;
+    background: map-get($colors, "bcg-dark");
+    clip-path: polygon(100% 0, 0 36%, 0 0);
+}
+
+.up-left-triangle-ext {
+    @extend .up-left-triangle;
+    top: -2.5vh;
+}

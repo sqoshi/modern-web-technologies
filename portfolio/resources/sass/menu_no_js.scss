@@ -1,0 +1,7 @@
+@import "colors";
+#menu-links {
+    background-color: map-get($colors, "white");
+    max-height: max-content;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}

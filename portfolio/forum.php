@@ -5,6 +5,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: login.php");
     exit;
 }
+
 require "config.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

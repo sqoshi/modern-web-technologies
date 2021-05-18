@@ -1,328 +1,350 @@
-/**mobile**/
+/* line 3, ../sass/arrows.scss */
+.arrow {
+  border: solid white;
+  border-width: 0 2vw 2vw 0;
+  display: inline-block;
+  padding: 2.0vw;
+}
 
+/* line 10, ../sass/arrows.scss */
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+/* line 15, ../sass/arrows.scss */
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+/* line 20, ../sass/arrows.scss */
+#project-left-arrow {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+/* line 29, ../sass/arrows.scss */
+#project-right-arrow {
+  position: absolute;
+  top: 50%;
+  left: 95%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+/**mobile**/
+/* line 6, ../sass/index.scss */
 body,
 html {
-    /*min-width:600px;*/
-    /*min-height: 300px;*/
-    overflow: auto;
-    margin: 0;
-    height: 100%;
-    width: 100%;
-    font-family: Ubuntu, "times new roman", times, roman, serif;
-    font-size: calc(0.75em + 1vmin);
-    bottom: 0;
+  overflow: auto;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Ubuntu, "times new roman", times, roman, serif;
+  font-size: calc(0.75em + 1vmin);
+  bottom: 0;
 }
 
+/* line 17, ../sass/index.scss */
 .column {
-    height: auto;
-    margin-left: 10%;
-    margin-right: 10%;
+  height: auto;
+  margin-left: 10%;
+  margin-right: 10%;
 }
-
 
 /******************** image **********************/
-
+/* line 24, ../sass/index.scss */
 #avatar-cropper {
-    overflow: hidden;
-    border-radius: 50vw;
-    margin: 0 auto;
-    height: 60vw;
-    width: 60vw;
+  overflow: hidden;
+  border-radius: 50vw;
+  margin: 0 auto;
+  height: 60vw;
+  width: 60vw;
 }
-
-#avatar {
-    display: table;
-    margin: 0 auto;
-    width: 80%;
-    height: auto;
+/* line 30, ../sass/index.scss */
+#avatar-cropper #avatar {
+  display: table;
+  margin: 0 auto;
+  width: 80%;
+  height: auto;
 }
-
 
 /****************** intro ********************/
-
+/* line 39, ../sass/index.scss */
 #intro {
-    text-align: center;
+  text-align: center;
 }
-
 
 /************ auxiliary classes **************/
-
+/* line 44, ../sass/index.scss */
 .content {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
+/* line 52, ../sass/index.scss */
 .section-header {
-    font-size: 4.0vw;
+  font-size: 4vw;
 }
-
 
 /****************** it-interests ********************/
-
+/* line 57, ../sass/index.scss */
 #it-interests-container {
-    margin-top: 20vw;
-    background-color: rgb(20, 20, 20);
+  margin-top: 20vw;
+  background-color: #141414;
 }
-
-#it-interests {
-    color: white;
+/* line 60, ../sass/index.scss */
+#it-interests-container #it-interests {
+  color: white;
 }
-
-#it-interests-text-container {
-    font-size: 3.2vw;
-    padding-top: 10%;
-    padding-bottom: 20rem;
-    width: 80%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
+/* line 62, ../sass/index.scss */
+#it-interests-container #it-interests #it-interests-text-container {
+  font-size: 3.2vw;
+  padding-top: 10%;
+  padding-bottom: 20rem;
+  width: 80%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
-
-.interests-title {
-    font-size: 3.5vw;
+/* line 70, ../sass/index.scss */
+#it-interests-container #it-interests #it-interests-text-container .interests-title {
+  font-size: 3.5vw;
 }
-
 
 /****************** skills ********************/
+/* line 78, ../sass/index.scss */
+.skills-header {
+  text-align: center;
+  font-size: 4vw;
+}
 
+/* line 83, ../sass/index.scss */
 #skills-overlay {
+  border-radius: 30px;
+  border-color: rgba(136, 144, 189, 0.23);
+  border-width: 3px;
+  border-style: solid;
+  top: -16rem;
+  position: relative;
+  background: white;
+  color: #141c3a;
+}
+/* line 92, ../sass/index.scss */
+#skills-overlay .skills-element {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+/* line 97, ../sass/index.scss */
+#skills-overlay .skills-element .skills-list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size: 3.5vw;
+  list-style-type: none;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+}
+/* line 108, ../sass/index.scss */
+#skills-overlay .skills-element .skills-list ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+/* line 114, ../sass/index.scss */
+#skills-overlay .skills-element .last-skills-element {
+  padding-bottom: 4rem;
+}
+/* line 117, ../sass/index.scss */
+#skills-overlay .skills-element .skills-subheader {
+  text-align: center;
+  font-size: 3.0vw;
+}
+
+/* line 124, ../sass/index.scss */
+.move-up {
+  margin-bottom: -10rem;
+}
+
+/**************** projects ******************/
+/* line 129, ../sass/index.scss */
+#projects {
+  box-shadow: 0px 10px 5px #888, 0px -10px 5px #888;
+  display: flex;
+  flex-direction: column;
+}
+/* line 133, ../sass/index.scss */
+#projects a.button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+  color: initial;
+  background-color: white;
+  height: 50vw;
+}
+/* line 142, ../sass/index.scss */
+#projects #projects-container {
+  position: relative;
+}
+/* line 144, ../sass/index.scss */
+#projects #projects-container #project-img {
+  height: 70vw;
+  background-size: cover;
+  width: 100%;
+}
+/* line 149, ../sass/index.scss */
+#projects #projects-container #project-href {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #141414;
+  color: white;
+  font-size: 4vw;
+  padding: 5vw 10vw;
+  border: none;
+  cursor: pointer;
+  border-radius: 1vw;
+}
+/* line 162, ../sass/index.scss */
+#projects #projects-container #project-href:hover, #projects #projects-container #project-href:active {
+  background-color: #555555;
+}
+
+/**************** contact ******************/
+/* line 171, ../sass/index.scss */
+#contact {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+/* line 174, ../sass/index.scss */
+#contact #contact-references-container {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+/* line 178, ../sass/index.scss */
+#contact #contact-references-container .contact-reference {
+  align-items: center;
+  justify-content: space-around;
+  padding: 1vw;
+  margin-top: 2vw;
+  height: 10vw;
+  border-radius: 1vw;
+  width: 100%;
+  background: #141414;
+  display: flex;
+  line-height: 1;
+}
+/* line 189, ../sass/index.scss */
+#contact #contact-references-container .contact-reference .contact-reference-img {
+  height: 80%;
+  object-fit: contain;
+}
+/* line 193, ../sass/index.scss */
+#contact #contact-references-container .contact-reference:hover, #contact #contact-references-container .contact-reference:active {
+  background-color: #555555;
+}
+@media screen and (min-width: 1150px) {
+  /* line 174, ../sass/index.scss */
+  #contact #contact-references-container {
+    display: flex;
+    flex-direction: row;
+    gap: 5vw;
+    border-style: solid;
     border-radius: 30px;
     border-color: rgba(136, 144, 189, 0.23);
     border-width: 3px;
-    border-style: solid;
-    top: -16rem;
-    position: relative;
-    background: white;
-    color: #141c3a;
+    padding-bottom: 5vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
+  }
 }
 
-.skills-list {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    font-size: 3.5vw;
-    list-style-type: none;
-    justify-content: space-around;
-    text-align: center;
-    align-items: center;
-}
-
-.skills-list ul {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-.skills-header {
-    text-align: center;
-    font-size: 4.0vw;
-}
-
-.skills-subheader {
-    text-align: center;
-    font-size: 3.0vw;
-}
-
-.skills-element {
-    box-sizing: border-box;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.move-up {
-    margin-bottom: -10rem;
-}
-
-.last-skills-element {
-    padding-bottom: 4rem;
-}
-
-
-/**************** projects ******************/
-
-#projects {
-    box-shadow: 0px 10px 5px #888, 0px -10px 5px #888;
-    display: flex;
-    flex-direction: column;
-}
-
-#projects a.button {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-    text-decoration: none;
-    color: initial;
-    background-color: white;
-    height: 50vw;
-}
-
-#projects-container {
-    position: relative;
-}
-
-#project-img {
-    height: 70vw;
-    background-size: cover;
-    width: 100%;
-}
-
-#project-href {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: rgb(20, 20, 20);
-    color: white;
-    font-size: 4vw;
-    padding: 5vw 10vw;
-    border: none;
-    cursor: pointer;
-    border-radius: 1vw;
-}
-
-#project-href:hover,
-#project-href:active {
-    background-color: rgba(85, 85, 85, 1);
-}
-
-.arrow {
-    border: solid white;
-    border-width: 0 2vw 2vw 0;
-    display: inline-block;
-    padding: 2.0vw;
-}
-
-.right {
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-}
-
-.left {
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
-}
-
-#project-left-arrow {
-    position: absolute;
-    top: 50%;
-    left: 5%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    cursor: pointer;
-}
-
-#project-right-arrow {
-    position: absolute;
-    top: 50%;
-    left: 95%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    cursor: pointer;
-}
-
-
-/**************** contact ******************/
-
-#contact {
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-}
-
-#contact-references-container {
-    justify-content: space-between;
-    display: flex;
-    flex-direction: column;
-}
-
-.contact-reference {
-    align-items: center;
-    justify-content: space-around;
-    padding: 1vw;
-    margin-top: 2vw;
-    height: 10vw;
-    border-radius: 1vw;
-    width: 100%;
-    background: rgb(20, 20, 20);
-    display: flex;
-    line-height: 1;
-}
-
-.contact-reference-img {
-    height: 80%;
-    object-fit: contain;
-}
-
-.contact-reference:hover,
-.contact-reference:active {
-    background-color: rgba(85, 85, 85, 1);
-}
-
+/* desktop */
 @media screen and (min-width: 1150px) {
-    #intro-container {
-        margin-top: 10vw;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-    }
-    #it-interests-text-container {
-        padding-top: 0%;
-        display: flex;
-        flex-direction: row;
-        font-size: 1vw;
-        justify-content: space-around;
-        align-items: center;
-        width: 100%;
-        gap: 2vw;
-    }
-    #it-interests {
-        width: 100%;
-    }
-    #it-interests-container {
-        margin-top: 5vw;
-    }
-    #it-interests-container .column {
-        margin-left: 4%;
-        margin-right: 4%;
-    }
-    .interests-title {
-        font-size: 1.5vw;
-    }
-    .section-header {
-        font-size: 2vw;
-    }
-    /* skills */
-    .skills-header {
-        font-size: 1.5vw;
-    }
-    .skills-subheader {
-        font-size: 1.1vw;
-    }
-    .skills-list {
-        font-size: 1.0vw;
-    }
-    /* projects */
-    #project-img {
-        height: 90vh;
-    }
-    /*contact*/
-    #contact-references-container {
-        display: flex;
-        flex-direction: row;
-        gap: 5vw;
-        border: solid;
-        border-radius: 30px;
-        border-color: rgba(136, 144, 189, 0.23);
-        border-width: 3px;
-        padding-bottom: 5vh;
-        padding-left: 2vh;
-        padding-right: 2vh;
-    }
+  /* line 219, ../sass/index.scss */
+  #intro-container {
+    margin-top: 10vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* line 226, ../sass/index.scss */
+  #it-interests-text-container {
+    padding-top: 0%;
+    display: flex;
+    flex-direction: row;
+    font-size: 1vw;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    gap: 2vw;
+  }
+
+  /* line 236, ../sass/index.scss */
+  #it-interests {
+    width: 100%;
+  }
+
+  /* line 239, ../sass/index.scss */
+  #it-interests-container {
+    margin-top: 5vw;
+  }
+
+  /* line 242, ../sass/index.scss */
+  #it-interests-container .column {
+    margin-left: 4%;
+    margin-right: 4%;
+  }
+
+  /* line 246, ../sass/index.scss */
+  .interests-title {
+    font-size: 1.5vw;
+  }
+
+  /* line 249, ../sass/index.scss */
+  .section-header {
+    font-size: 2vw;
+  }
+
+  /* skills */
+  /* line 253, ../sass/index.scss */
+  .skills-header {
+    font-size: 1.5vw;
+  }
+
+  /* line 256, ../sass/index.scss */
+  .skills-subheader {
+    font-size: 1.1vw;
+  }
+
+  /* line 259, ../sass/index.scss */
+  .skills-list {
+    font-size: 1.0vw;
+  }
+
+  /* projects */
+  /* line 263, ../sass/index.scss */
+  #project-img {
+    height: 90vh;
+  }
 }

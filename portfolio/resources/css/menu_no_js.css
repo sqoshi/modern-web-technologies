@@ -1,6 +1,7 @@
+/* line 2, ../sass/menu_no_js.scss */
 #menu-links {
-    background-color: white;
-    max-height: max-content;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
+  background-color: white;
+  max-height: max-content;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 }
