@@ -1,0 +1,130 @@
+body,
+html {
+    background-color: white;
+    overflow: auto;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    font-family: Ubuntu, "times new roman", times, roman, serif;
+    font-size: 30px;
+    color: white;
+    bottom: 0;
+    z-index: -2;
+}
+
+.container {
+    background: rgb(20, 20, 20);
+    position: absolute;
+    top: 15vw;
+    bottom: 10vw;
+    left: 10vw;
+    right: 10vw;
+}
+
+.wrapper {
+    height: 95%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    align-content: center;
+}
+
+.wrapper p {
+    text-align: center;
+}
+
+.wrapper h2 {
+    flex: 1;
+}
+
+form {
+    flex: 9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    align-content: center;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    align-content: center;
+}
+
+.form-group-row {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    column-gap: 20%;
+}
+
+.btn {
+    margin-left: 15%;
+    flex: 1;
+    font-size: large;
+    margin: auto;
+    width: 50%;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: wheat;
+}
+
+.invalid-feedback {
+    padding: 0.5rem;
+    text-align: center;
+}
+
+
+/* .form-control {
+    font-size: 60px;
+    height: 80%;
+} */
+
+.down-right-triangle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-attachment: fixed;
+    background: rgb(20, 20, 20);
+    clip-path: polygon(100% 53%, 0% 100%, 100% 100%);
+}
+
+.up-left-triangle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-attachment: fixed;
+    background: rgb(20, 20, 20);
+    clip-path: polygon(100% 0, 0 36%, 0 0);
+}
+
+@media screen and (max-width: 1150px) {
+    .form-control {
+        font-size: 4vh;
+        height: 60%;
+    }
+    .wrapper h2 {
+        flex: 1;
+        font-size: 6vh;
+    }
+    .btn {
+        height: 5vh;
+    }
+}
+
+.alert {
+    color: red;
+}

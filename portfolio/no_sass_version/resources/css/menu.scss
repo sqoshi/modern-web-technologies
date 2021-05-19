@@ -1,0 +1,86 @@
+#menu {
+    z-index: 3;
+    overflow: hidden;
+    background-color: rgb(20, 20, 20);
+    position: relative;
+}
+
+#menu-links {
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+#menu-icon {
+    cursor: pointer;
+    margin-right: 15px;
+    height: 100%;
+    min-width: 30px;
+    width: 50px;
+}
+
+#menu-logo-a {
+    display: inline-block;
+    line-height: 1;
+}
+
+#menu-logo-img {
+    margin-left: 2%;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+#menu .link {
+    text-align: center;
+    background-color: rgb(20, 20, 20);
+    padding: 20px 24px;
+    text-decoration: none;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 4vw;
+    display: block;
+    color: white;
+}
+
+#menu .link:hover,
+.link:active {
+    background-color: #333;
+}
+
+#menu-header {
+    clear: both;
+    height: 100px;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.hamburger-rect {
+    fill: rgb(255, 255, 255);
+}
+
+@media screen and (min-width: 1150px) {
+    /*----- menu -----*/
+    #menu-header {
+        height: 40px;
+    }
+    #menu-icon {
+        transform: scale(0.5);
+    }
+    #menu .link {
+        font-size: 2vw;
+    }
+    /* avatar section */
+    #intro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #avatar-cropper {
+        height: 20vw;
+        width: 20vw;
+    }
+}
