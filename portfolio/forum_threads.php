@@ -15,11 +15,10 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
     <meta charset="UTF-8">
     <link rel="stylesheet" href="resources/css/forum.css">
-    <script src="resources/js/threads.js"></script>
     <title>Forum</title>
 </head>
 
-<body onload='setImage()'>
+<body>
     <?php
     include('menu.php')
     ?>

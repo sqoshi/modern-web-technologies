@@ -1,5 +1,3 @@
-var project = ""
-
 function setImage() {
     let url = new URLSearchParams(window.location.search);
     let c = url.get("image-name");

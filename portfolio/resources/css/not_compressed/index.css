@@ -1,0 +1,303 @@
+.arrow {
+    border: solid #fff;
+    border-width: 0 2vw 2vw 0;
+    display: inline-block;
+    padding: 2.0vw
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg)
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg)
+}
+
+#project-left-arrow {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    cursor: pointer
+}
+
+#project-right-arrow {
+    position: absolute;
+    top: 50%;
+    left: 95%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    cursor: pointer
+}
+
+body,
+html {
+    overflow: auto;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    font-family: Ubuntu, "times new roman", times, roman, serif;
+    bottom: 0;
+    font-size: calc(0.75em + 1vmin)
+}
+
+.column {
+    height: auto;
+    margin-left: 10%;
+    margin-right: 10%
+}
+
+#avatar-cropper {
+    overflow: hidden;
+    border-radius: 50vw;
+    margin: 0 auto;
+    height: 60vw;
+    width: 60vw
+}
+
+#avatar-cropper #avatar {
+    display: table;
+    margin: 0 auto;
+    width: 80%;
+    height: auto
+}
+
+#intro {
+    text-align: center
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column
+}
+
+.section-header {
+    font-size: 4vw
+}
+
+#it-interests-container {
+    margin-top: 20vw;
+    background-color: #141414
+}
+
+#it-interests-container #it-interests {
+    color: #fff
+}
+
+#it-interests-container #it-interests #it-interests-text-container {
+    font-size: 1.8vw;
+    padding-top: 10%;
+    padding-bottom: 20rem;
+    width: 80%;
+    text-align: center;
+    display: flex;
+    flex-direction: column
+}
+
+#it-interests-container #it-interests #it-interests-text-container .interests-title {
+    font-size: 3.5vw
+}
+
+.skills-header {
+    text-align: center;
+    font-size: 4vw
+}
+
+#skills-overlay {
+    border-radius: 30px;
+    border-color: rgba(136, 144, 189, 0.23);
+    border-width: 3px;
+    border-style: solid;
+    top: -16rem;
+    position: relative;
+    background: #fff;
+    color: #141c3a
+}
+
+#skills-overlay .skills-element {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column
+}
+
+#skills-overlay .skills-element .skills-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 3.5vw;
+    list-style-type: none;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center
+}
+
+#skills-overlay .skills-element .skills-list ul {
+    margin: 0;
+    padding: 0;
+    width: 100%
+}
+
+#skills-overlay .skills-element .last-skills-element {
+    padding-bottom: 4rem
+}
+
+#skills-overlay .skills-element .skills-subheader {
+    text-align: center;
+    font-size: 3.0vw
+}
+
+.move-up {
+    margin-bottom: -10rem
+}
+
+#projects {
+    box-shadow: 0px 10px 5px #888, 0px -10px 5px #888;
+    display: flex;
+    flex-direction: column
+}
+
+#projects a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    color: initial;
+    background-color: #fff;
+    height: 50vw
+}
+
+#projects #projects-container {
+    position: relative
+}
+
+#projects #projects-container #project-img {
+    height: 70vw;
+    background-size: cover;
+    width: 100%
+}
+
+#projects #projects-container #project-href {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #141414;
+    color: #fff;
+    font-size: 4vw;
+    padding: 5vw 10vw;
+    border: none;
+    cursor: pointer;
+    border-radius: 1vw
+}
+
+#projects #projects-container #project-href:hover,
+#projects #projects-container #project-href:active {
+    background-color: #555
+}
+
+#contact {
+    margin-top: 5rem;
+    margin-bottom: 5rem
+}
+
+#contact #contact-references-container {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column
+}
+
+#contact #contact-references-container .contact-reference {
+    align-items: center;
+    justify-content: space-around;
+    padding: 1vw;
+    margin-top: 2vw;
+    height: 10vw;
+    border-radius: 1vw;
+    width: 100%;
+    background: #141414;
+    display: flex;
+    line-height: 1
+}
+
+#contact #contact-references-container .contact-reference .contact-reference-img {
+    height: 80%;
+    object-fit: contain
+}
+
+#contact #contact-references-container .contact-reference:hover,
+#contact #contact-references-container .contact-reference:active {
+    background-color: #555
+}
+
+@media screen and (min-width: 1150px) {
+    #contact #contact-references-container {
+        display: flex;
+        flex-direction: row;
+        gap: 5vw;
+        border-style: solid;
+        border-radius: 30px;
+        border-color: rgba(136, 144, 189, 0.23);
+        border-width: 3px;
+        padding-bottom: 5vh;
+        padding-left: 2vh;
+        padding-right: 2vh
+    }
+}
+
+@media screen and (min-width: 1150px) {
+    #intro-container {
+        margin-top: 10vw;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center
+    }
+    #it-interests-text-container {
+        padding-top: 0%;
+        display: flex;
+        flex-direction: row;
+        font-size: 1vw;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        gap: 2vw
+    }
+    #it-interests {
+        width: 100%
+    }
+    #it-interests-container {
+        margin-top: 5vw
+    }
+    #it-interests-container .column {
+        margin-left: 4%;
+        margin-right: 4%
+    }
+    .interests-title {
+        font-size: 1.5vw
+    }
+    .section-header {
+        font-size: 2vw
+    }
+    .skills-header {
+        font-size: 1.5vw
+    }
+    .skills-subheader {
+        font-size: 1.1vw
+    }
+    .skills-list {
+        font-size: 1.0vw
+    }
+    #project-img {
+        height: 90vh
+    }
+}

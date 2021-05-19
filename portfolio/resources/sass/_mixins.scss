@@ -1,0 +1,21 @@
+@import "colors";
+@import "variables";
+@import "functions";
+@mixin textColorSwapper($backgroundColor) {
+    background: $backgroundColor;
+    @if lightness($backgroundColor)<50% {
+        color: map-get($colors, "white");
+    }
+    @else {
+        color: map-get($colors, "bcg-dark");
+    }
+}
+
+@mixin fontSizeSwapper() {
+    @if get-vw(72px) < 50vw {
+        font-size: $ubuntuDefaultFontSize;
+    }
+    @else {
+        font-size: 1.1 * $ubuntuDefaultFontSize;
+    }
+}

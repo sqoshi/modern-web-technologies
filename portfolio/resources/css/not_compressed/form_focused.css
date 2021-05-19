@@ -1,0 +1,127 @@
+.down-right-triangle,
+.up-left-triangle,
+.up-left-triangle-ext {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-attachment: fixed
+}
+
+.down-right-triangle {
+    background: #141414;
+    clip-path: polygon(100% 53%, 0% 100%, 100% 100%)
+}
+
+.up-left-triangle,
+.up-left-triangle-ext {
+    background: #141414;
+    clip-path: polygon(100% 0, 0 36%, 0 0)
+}
+
+.up-left-triangle-ext {
+    top: -2.5vh
+}
+
+body,
+html {
+    overflow: auto;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    font-family: Ubuntu, "times new roman", times, roman, serif;
+    bottom: 0;
+    font-size: calc(0.75em + 1vmin)
+}
+
+body,
+html {
+    background-color: #fff;
+    font-size: 30px;
+    color: #fff;
+    z-index: -2
+}
+
+.container .wrapper,
+.container .wrapper form,
+.container .wrapper form .form-group,
+.container .wrapper form .form-group-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    align-content: center
+}
+
+.container {
+    background: #141414;
+    position: absolute;
+    top: 15vw;
+    bottom: 10vw;
+    left: 10vw;
+    right: 10vw
+}
+
+.container .wrapper {
+    height: 95%;
+    padding: 20px
+}
+
+.container .wrapper p {
+    text-align: center
+}
+
+.container .wrapper h2 {
+    flex: 1
+}
+
+.container .wrapper form {
+    flex: 9
+}
+
+.container .wrapper form .form-group {
+    flex: 1
+}
+
+.container .wrapper form .form-group-row {
+    flex: 1;
+    flex-direction: row;
+    column-gap: 20%
+}
+
+.container .wrapper form .invalid-feedback {
+    padding: 0.5rem;
+    text-align: center
+}
+
+.btn {
+    margin-left: 15%;
+    flex: 1;
+    font-size: large;
+    margin: auto;
+    width: 50%;
+    border-radius: 15px;
+    cursor: pointer
+}
+
+.btn:hover {
+    background-color: wheat
+}
+
+@media screen and (max-width: 1150px) {
+    .form-control {
+        font-size: 4vh;
+        height: 60%
+    }
+    .wrapper h2 {
+        flex: 1;
+        font-size: 6vh
+    }
+    .btn {
+        height: 5vh
+    }
+}
+
+.alert {
+    color: red
+}

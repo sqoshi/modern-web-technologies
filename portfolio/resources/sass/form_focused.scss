@@ -1,17 +1,13 @@
 @import "colors";
 @import "variables";
 @import "triangles";
+@import "models";
 body,
 html {
+    @extend %body-model;
     background-color: map-get($colors, "white");
-    overflow: auto;
-    margin: 0;
-    height: 100%;
-    width: 100%;
-    font-family: $standardFontFamily;
     font-size: 30px;
     color: map-get($colors, "white");
-    bottom: 0;
     z-index: -2;
 }
 

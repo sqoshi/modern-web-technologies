@@ -1,0 +1,107 @@
+body,
+html {
+    overflow: auto;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    font-family: Ubuntu, "times new roman", times, roman, serif;
+    bottom: 0;
+    font-size: calc(0.75em + 1vmin)
+}
+
+#page-content .center-tile,
+#comments-container,
+#thread-nav {
+    display: flex;
+    flex-direction: column
+}
+
+#image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+#page-content {
+    height: 100%;
+    width: 100%;
+    position: relative
+}
+
+#page-content .center-tile {
+    color: #fff;
+    background: #141414;
+    position: absolute;
+    top: 10vh;
+    bottom: 10vh;
+    left: 10vw;
+    right: 10vw;
+    border-radius: 30px
+}
+
+#image-container {
+    width: 100%;
+    flex: 7
+}
+
+#image-container #project-preview {
+    max-height: 30vh;
+    width: 80%;
+    background-size: 'cover'
+}
+
+#comments-container {
+    width: 100%;
+    flex: 8;
+    overflow-y: scroll;
+    word-wrap: break-word
+}
+
+#comments-container .comment-row {
+    margin: 20px 25px 15px;
+    border-radius: 15px;
+    background-color: grey;
+    padding: 15px
+}
+
+#comments-container .comment-row .comment-username {
+    padding-left: 15px
+}
+
+#input-container {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: row
+}
+
+#input-container #input-text {
+    font-size: 60%;
+    flex: 4
+}
+
+#input-container #insert-btn {
+    font-size: 60%;
+    flex: 1
+}
+
+#thread-nav {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    align-items: center;
+    height: 100%;
+    gap: 15px
+}
+
+#thread-nav .thread {
+    flex: 1;
+    width: 100%
+}
+
+#thread-nav .thread input {
+    cursor: pointer;
+    padding: 15px;
+    width: 100%
+}

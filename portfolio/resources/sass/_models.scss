@@ -1,0 +1,10 @@
+@import "mixins";
+%body-model {
+    overflow: auto;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    font-family: $standardFontFamily;
+    bottom: 0;
+    @include fontSizeSwapper();
+}

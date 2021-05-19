@@ -1,17 +1,12 @@
     @import "colors";
     @import "variables";
     @import "arrows";
+    @import "models";
     /**mobile**/
     
     body,
     html {
-        overflow: auto;
-        margin: 0;
-        height: 100%;
-        width: 100%;
-        font-family: $standardFontFamily;
-        font-size: $ubuntuDefaultFontSize;
-        bottom: 0;
+        @extend %body-model;
     }
     
     .column {
@@ -60,7 +55,7 @@
         #it-interests {
             color: map-get($colors, "white");
             #it-interests-text-container {
-                font-size: 3.2vw;
+                font-size: 1.8vw;
                 padding-top: 10%;
                 padding-bottom: 20rem;
                 width: 80%;

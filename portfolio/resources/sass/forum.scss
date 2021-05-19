@@ -1,101 +1,100 @@
-    body,
-    html {
-        overflow: auto;
-        margin: 0;
-        height: 100%;
-        width: 100%;
-        font-family: Ubuntu, "times new roman", times, roman, serif;
-        font-size: calc(0.75em + 1vmin);
-        bottom: 0;
-    }
-    
-    #page-content {
-        height: 100%;
-        width: 100%;
-        position: relative;
-    }
-    
+@import "colors";
+@import "variables";
+@import "models";
+body,
+html {
+    @extend %body-model;
+}
+
+%column-flex-formatter {
+    display: flex;
+    flex-direction: column;
+}
+
+%item-centralizer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#page-content {
+    height: 100%;
+    width: 100%;
+    position: relative;
     .center-tile {
-        color: white;
-        background: rgb(20, 20, 20);
+        color: map-get($colors, "white");
+        background: map-get($colors, "bcg-dark");
         position: absolute;
         top: 10vh;
         bottom: 10vh;
         left: 10vw;
         right: 10vw;
         border-radius: 30px;
-        display: flex;
-        flex-direction: column;
+        @extend %column-flex-formatter;
     }
-    
-    #image-container {
-        width: 100%;
-        flex: 7;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    #comments-container {
-        width: 100%;
-        flex: 8;
-        display: flex;
-        flex-direction: column;
-        overflow-y: scroll;
-    }
-    
-    .comment-row {
-        margin: 20px 25px 15px;
-        border-radius: 15px;
-        background-color: grey;
-        padding: 15px;
-    }
-    
-    .comment-username {
-        padding-left: 15px;
-    }
-    
-    #input-container {
-        width: 100%;
-        flex: 1;
-        display: flex;
-        flex-direction: row;
-    }
-    
-    #input-text {
-        font-size: 60%;
-        flex: 4;
-    }
-    
-    #insert-btn {
-        font-size: 60%;
-        flex: 1;
-    }
-    
+}
+
+#image-container {
+    width: 100%;
+    flex: 7;
+    @extend %item-centralizer;
     #project-preview {
         max-height: 30vh;
         width: 80%;
         background-size: 'cover';
     }
-    
-    #thread-nav {
-        margin-top: 30px;
-        margin-bottom: 30px;
-        margin-left: 10px;
-        margin-right: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: 100%;
-        gap: 15px;
+}
+
+#comments-container {
+    width: 100%;
+    flex: 8;
+    @extend %column-flex-formatter;
+    overflow-y: scroll;
+    word-wrap: break-word; // very usefull ~ moves text ofervlow to next line
+    .comment-row {
+        margin: 20px 25px 15px;
+        border-radius: 15px;
+        background-color: grey;
+        padding: 15px;
+        .comment-username {
+            padding-left: 15px;
+        }
     }
-    
+}
+
+#input-container {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    #input-text {
+        font-size: 60%;
+        flex: 4;
+    }
+    #insert-btn {
+        font-size: 60%;
+        flex: 1;
+    }
+}
+
+#thread-nav {
+    margin: {
+        top: 30px;
+        bottom: 30px;
+        left: 10px;
+        right: 10px;
+    }
+    @extend %column-flex-formatter;
+    align-items: center;
+    height: 100%;
+    gap: 15px;
     .thread {
         flex: 1;
         width: 100%;
+        input {
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+        }
     }
-    
-    .thread input {
-        padding: 15px;
-        width: 100%;
-    }
+}
