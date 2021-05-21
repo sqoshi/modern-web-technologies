@@ -1,0 +1,122 @@
+<head>
+  <link rel="stylesheet" href="resources/css/embed.css">
+</head>
+<h1 id="zalando-longue-shopping-bot"><a href='https://github.com/sqoshi/zalando-shopping-bot'>Zalando Longue Shopping Bot</a></h1>
+<p>The bot was created for the mozilla firefox browser, on linux ubuntu 20.04, written in python version 3.8.</p>
+<p>Date: 3 June 2020</p>
+<h2 id="table-of-contents">Table of contents</h2>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#general-info">General info</a></li>
+  <li><a href="#code-example">Code Example</a></li>
+  <li><a href="#Production-Details">Production Details</a></li>
+  <li><a href="#launch">Launch</a></li>
+  <li><a href="#installation">Installation</a></li>
+  <li><a href="#technologies">Technologies</a></li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>Let me start with a general rundown of the problem. (drop - sale, drop of one brand of clothes).
+  There are various sites that offer groupings of such drops, e.g. zalando has a site dealing with such issues - zalando-longue.
+  It works on the basis that, for example, 5 days earlier, there is an e-mail announcement that the drop of Ralph Lauren clothes is to be at 6:00 am. But what&#39;s so interesting about it and what&#39;s the problem?
+  In fact, these are often very large discounts, even up to 80%. Vans shoes worth PLN 300 could be bought for PLN 70.
+  The problem is that not only we know about these drops and all these items sell out within a few or a dozen minutes, there is a real madness there, the sizes disappear in the blink of an eye.</p>
+<p>One of the (in my opinion) interesting walkthroughs is writing a Shopping Bot.
+  The bot would enter the website, log in, find a drop after the &quot;Ralph&quot; tag and now go through all the goods and check if they are as expected
+  eg &quot;green&quot;, &quot;shirt&quot;, &quot;ralph&quot;, &quot;L&quot;. The program does not have to buy anything theoretically, it adds acceptable items to the basket in which the item can exist (probably for half an hour).
+  So, after 10-15 minutes of botting I can enter my cart into my account and select items that I want or not.
+  I know it&#39;s rather illegal, but there are also various groups on Facebook where you can earn money from the so-called
+  proxy, i.e. the item in the basket is sold, (for example PLN 50 more)
+  because it is no longer available in zalando-longue. At normal price this product is worth 2x more or it can be special for someone.
+  In such a drop, everything that is potentially interesting is included.
+  Items are thrown from the basket as a post on the group and then consciously
+  people buy these items indirectly although(for example PLN 50 more) knowing that it was cheaper on zalando.</p>
+<p>I emphasize that this has never happened in my case, but I know it is happening :).</p>
+<h2 id="general-info">General Info</h2>
+<p><img style='width: 100%;'src="https://raw.githubusercontent.com/sqoshi/zalando-shopping-bot/master/features/screenshots/panelbot.png" alt="IMG"></p>
+<h3 id="database">Database</h3>
+<p>Registration allows users to save their preferences for next next shopping in cloud database.
+  Inputting an email gives possibility to notify you via mail about that
+  finished work of bot.
+  <img style='width: 100%;'src="https://raw.githubusercontent.com/sqoshi/zalando-shopping-bot/master/features/screenshots/fbconf.png" alt="IMG">
+</p>
+<h3 id="campaign-id">Campaign ID</h3>
+<h4 id="description">Description</h4>
+<p>To get the campaign id of the upcoming sale,
+  please find it in the &quot;Coming Soon&quot; section
+  that appears after logging in to the zalando longue website.
+  Right-click and choose inspect element. Then look for the ID in the source code.
+  Example included in the photo below.
+  <img style='width: 100%;'src="https://raw.githubusercontent.com/sqoshi/zalando-shopping-bot/master/features/screenshots/campaign_id_instruction.png?raw=true" alt="Alt text">
+</p>
+<h2 id="code-example">Code Example</h2>
+  <pre style='font-size:1vw;'><code class="lang-python" style='box-sizing: border-box;'> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">perform_login</span><span class="hljs-params">(<span class="hljs-keyword">self</span>)</span></span>:
+        <span class="hljs-string">""</span><span class="hljs-string">"
+       Logging to account, checks error, sends login and pwd
+       :return:
+       "</span><span class="hljs-string">""</span>
+        <span class="hljs-keyword">while</span> <span class="hljs-symbol">True:</span>
+            <span class="hljs-symbol">try:</span>
+                WebDriverWait(<span class="hljs-keyword">self</span>.driver, <span class="hljs-number">5</span>).<span class="hljs-keyword">until</span>(
+                    ec.element_to_be_clickable((By.XPATH, <span class="hljs-string">'//*[@id=\"uc-btn-accept-banner\"]'</span>))).click()
+                <span class="hljs-keyword">break</span>
+            except <span class="hljs-symbol">StaleElementReferenceException:</span>
+                pass
+        <span class="hljs-keyword">self</span>.driver.find_element_by_xpath(
+            <span class="hljs-string">"/html/body/div[2]/div/div[2]/div[1]/div/div/div[1]/div/div/div[2]/div/div/button"</span>).click()
+        element = WebDriverWait(<span class="hljs-keyword">self</span>.driver, <span class="hljs-number">25</span>).<span class="hljs-keyword">until</span>(ec.element_to_be_clickable((By.XPATH, <span class="hljs-string">'//*[@id="form-email"]'</span>)))
+        element.send_keys(<span class="hljs-keyword">self</span>.email)
+        element = WebDriverWait(<span class="hljs-keyword">self</span>.driver, <span class="hljs-number">20</span>).<span class="hljs-keyword">until</span>(
+            ec.element_to_be_clickable((By.XPATH, <span class="hljs-string">'//*[@id="form-password"]'</span>)))
+        element.send_keys(<span class="hljs-keyword">self</span>.password)
+        element.submit()
+        <span class="hljs-keyword">self</span>.wait_login_error()
+</code></pre>
+<h2 id="installation">Installation</h2>
+Well firstly you need to install geckodriver in accordance with <a href="https://github.com/mozilla/geckodriver/releases"><em>geckodriver</em></a>.
+Than you can install all needed libs and frameworks with build script:
+```shell script
+./build
+```` <h2 id="technologies">Technologies</h2>
+</li>
+</ul>
+<h4 id="libraries-and-frameworks-manual">Libraries and Frameworks Manual</h4>
+<pre><code>pip <span class="hljs-keyword">install</span> pyrebase
+</code></pre>
+<pre><code>pip <span class="hljs-keyword">install</span> selenium
+</code></pre>
+<pre><code>pip <span class="hljs-keyword">install</span> PyQt5
+</code></pre>
+<h4 id="geckodriver">Geckodriver</h4>
+<h5 id="-3-june-2020-">( 3 June 2020).</h5>
+<p>The one problem is Geckodriver (for Firefox).
+  The module features has the local geckodriver driver version 0.26 for the latest version of firefox 76.0.1 (64-bit)</p>
+<h6 id="instruction-for-geckodriver-">Instruction for geckodriver :</h6>
+<ol>
+  <li>
+    <p>Find and download the latest driver version
+      <a href="https://github.com/mozilla/geckodriver/releases">geckodriver newest version</a>, example:
+    </p>
+    <p> <code>wget https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodriver-v0.26.0-linux64.tar.gz</code></p>
+  </li>
+  <li>
+    <p>Then unpack</p>
+    <p> <code>tar -xvzf geckodriver*</code></p>
+  </li>
+  <li>
+    <p>Give the executable permission</p>
+    <p> <code>chmod +x geckodriver</code></p>
+  </li>
+  <li>
+    <p>Add the driver path to the PATH</p>
+    <p> <code>export PATH=$PATH:/path-to-extracted-file/.</code></p>
+  </li>
+</ol>
+<p><a href="https://askubuntu.com/questions/870530/how-to-install-geckodriver-in-ubuntu">ASK UBUNTU HELP LINK GECKODRIVER</a></p>
+<h4 id="useful-links">Useful links</h4>
+<p><a href="https://firebase.com">firebase</a>
+  <a href="https://github.com/thisbejim/Pyrebase/blob/master/README.md?fbclid=IwAR0MfG6lXHNXciGdLzK0AdW7lkIUWmNrHd4jQvUjrV8heOXVvvIu2SK1Usw">pyrebase</a>
+  <a href="https://askubuntu.com/questions/870530/how-to-install-geckodriver-in-ubuntu">geckodriver askubuntu</a>
+  <a href="https://selenium-python.readthedocs.io/">selenium</a>
+  <a href="https://pypi.org/project/PyQt5/">PyQt5</a>
+  <a href="https://realpython.com/run-python-scripts/">Python Scripts</a>
+</p>

@@ -1,0 +1,73 @@
+<h1 id="grade-point-average-calculator"><a href="https://github.com/sqoshi/gpa-calculator" >Grade Point Average Calculator</a></h1>
+<h2 id="table-of-contents">Table of contents</h2>
+<ul>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#general-info">General info</a></li>
+  <li><a href="#code-example">Code Example</a></li>
+  <li><a href="#launch">Launch</a></li>
+  <li><a href="#installation">Installation</a></li>
+  <li><a href="#technologies">Technologies</a></li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>React application to convert grades from Polish or U.S grades system to GPA world system and
+  compute grade point average according to formula from Stanford University.
+  <img style='width:100%;' src="https://raw.githubusercontent.com/sqoshi/gpa-calculator/master/public/img/page.png" alt="IMG">
+</p>
+<h2 id="general-info">General info</h2>
+<p>Grades can be inserted manually or you can input a file with xls extension. </p>
+<ul>
+  <li>There is a need to have your grades under column named
+    &#39;Ocena&#39; and the ECTS or hours value under column called &#39;ECTS&#39;.</li>
+  <li>Rest of columns do not affect the performance of the application.</li>
+  <li>The columns&#39; order does not matter.</li>
+</ul>
+<p>Program accepts XLS files generated straight from JSOS (
+  for Wrocław University of Science and Technology Students).</p>
+<p>Data Sample if you do not want to enter it manually:
+  <img style='width:100%;' src="https://raw.githubusercontent.com/sqoshi/gpa-calculator/master/public/img/data.png" alt="IMG">
+</p>
+<h3 id="data-formating-">Data formating:</h3>
+<ul>
+  <li>Wrong rows like &quot;---&quot; are being omitted.</li>
+  <li>Values from rows like &#39;(E)&#39; are taken into account.</li>
+</ul>
+<h4 id="example-results">Example Results</h4>
+<p><img style='width:100%;' src="https://raw.githubusercontent.com/sqoshi/gpa-calculator/master/public/img/result.png" alt="IMG"></p>
+<h2 id="code-example">Code Example</h2>
+<p style='font-size:1vw;'>
+<pre style="font-size: 1.5vw;"><code>
+  class InputComponent extends Component {
+  state = {
+  renderView: 0,
+  };
+  render() {
+  return (
+&lt div className={"input-element"} &gt
+  &lt label &gt ECTS &lt input class="ects-in" value={this.props.val_ects} type="text" &gt &lt/input &gt &lt/label&gt
+  &lt label &gt  &lt input class="grades-in" value={this.props.val_grade} type="text" &gt &lt/input &gt Grade &lt/label&gt
+&lt/div &gt
+);}}
+</code></pre>
+
+<h2 class="code-line" data-line-start=0 data-line-end=1><a id="Launch_0"></a>Launch</h2>
+<p class="has-line-data" data-line-start="2" data-line-end="3">In the project directory, you can run:</p>
+<h3 class="code-line" data-line-start=3 data-line-end=4><a id="npm_start_3"></a><code>npm start</code></h3>
+<p class="has-line-data" data-line-start="4" data-line-end="8">Runs the app in the development mode.<br>
+  Open <a href="http://localhost:3000">http://localhost:3000</a> to view it in the browser.<br>
+  The page will reload you make edits.<br>
+  You will also see any lint errors  the console.</p>
+<h2 class="code-line" data-line-start=10 data-line-end=11><a id="Installation_10"></a>Installation</h2>
+<h3 class="code-line" data-line-start=11 data-line-end=12><a id="npm_install_scriptsprependnodepathauto_11"></a><code>npm install --scripts-prepend-node-path=auto</code></h3>
+<p class="has-line-data" data-line-start="12" data-line-end="13">Builds the app for production the current folder.</p>
+<p class="has-line-data" data-line-start="14" data-line-end="16">It correctly bundles React production mode and optimizes<br>
+  the build for the best performance.</p>
+<p class="has-line-data" data-line-start="17" data-line-end="19">The build is minified and the filenames include the hashes.<br>
+  Your app is ready to be deployed!</p>
+<p class="has-line-data" data-line-start="20" data-line-end="21">See the section about [deployment] <a
+    href="//facebook.github.io/create-react-app/docs/deployment">CLICK</a> for more information.</p>
+<h2 class="code-line" data-line-start=23 data-line-end=24><a id="Technologies_23"></a>Technologies</h2>
+<ul>
+  <li class="has-line-data" data-line-start="24" data-line-end="25">ReactJS</li>
+  <li class="has-line-data" data-line-start="25" data-line-end="26">Javascript</li>
+  <li class="has-line-data" data-line-start="26" data-line-end="27">Xlsx</li>
+</ul>

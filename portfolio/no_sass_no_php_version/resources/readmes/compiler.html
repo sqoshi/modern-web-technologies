@@ -1,0 +1,400 @@
+<h1 id="compiler"><a href='https://github.com/sqoshi/compiler'>Compiler</a></h1>
+<h2 id="table-of-contents">Table of contents</h2>
+<ul>
+  <li><a href="#installation">Installation</a></li>
+  <li><a href="#launch">Launch</a></li>
+  <li><a href="#Introduction">Introduction</a></li>
+  <li><a href="#general-info">General info</a></li>
+  <li><a href="#warnings">Warnings</a></li>
+  <li><a href="#code-example">Code Example</a></li>
+  <li><a href="#technologies">Technologies</a></li>
+</ul>
+<h2 id="installation">Installation</h2>
+<p>Installation can be carried out automatically with alternatively:</p>
+<pre><code class="lang-shell"><span class="hljs-attribute">make</span>
+</code></pre>
+<p>or</p>
+<p>
+  bash install.sh</p>
+<pre><code>
+<span class="mipsasm">If <span class="hljs-keyword">script </span><span class="hljs-keyword">and </span>make would fail than <span class="hljs-keyword">installation </span>need to <span class="hljs-keyword">be </span>done manually:
+<span class="hljs-keyword">shell
+</span>sudo apt update
+sudo apt <span class="hljs-keyword">install </span>python3
+sudo apt <span class="hljs-keyword">install </span>python3-pip
+sudo pip3 <span class="hljs-keyword">install </span>-r requirements.txt</span>
+</code></pre>
+<p>If <code>pip3 install -r requirements.txt</code> fails than packages below need to be installed
+  manually:</p>
+<pre><code class="lang-shell">sudo pip3 install termcolor==<span class="hljs-number">1.1</span><span class="hljs-number">.0</span>
+sudo pip3 install numpy==<span class="hljs-number">1.19</span><span class="hljs-number">.5</span>
+sudo pip3 install ply==<span class="hljs-number">3.11</span>
+</code></pre>
+<h2 id="launch">Launch</h2>
+<p>
+  python3 kompilator.py in_file out_file</p>
+<pre><code>
+  <h2 id="Introduction">Introduction</h2>
+
+
+Compiler takes some code <span class="hljs-keyword">in</span> <span class="hljs-keyword">Pascal</span>- like imperative language
+ defined <span class="hljs-keyword">by</span> grammar <span class="hljs-keyword">in</span> general info section <span class="hljs-keyword">and</span> produces
+a machine code which <span class="hljs-keyword">is</span> accepted <span class="hljs-keyword">by</span> a
+<span class="hljs-keyword">virtual</span> machine attached <span class="hljs-keyword">in</span> working tree( maszyna-wirtualna).
+<h2 id="CodeExample">Code Example</h2>
+ <span class="hljs-keyword">of</span> imperative language (binary notation <span class="hljs-keyword">of</span> a number)
+```python
+<span class="hljs-number">1</span> DECLARE
+<span class="hljs-number">2</span>   n,p
+<span class="hljs-number">3</span> <span class="hljs-keyword">BEGIN</span>
+<span class="hljs-number">4</span>       <span class="hljs-keyword">READ</span> n ;
+<span class="hljs-number">5</span>       <span class="hljs-keyword">REPEAT</span>
+<span class="hljs-number">6</span>       p := n / <span class="hljs-number">2</span>;
+<span class="hljs-number">7</span>       p := <span class="hljs-number">2</span> * p ;
+<span class="hljs-number">8</span>       <span class="hljs-keyword">IF</span> n &gt; p <span class="hljs-keyword">THEN</span>
+<span class="hljs-number">9</span>           <span class="hljs-keyword">WRITE</span> <span class="hljs-number">1</span>;
+<span class="hljs-number">10</span>      <span class="hljs-keyword">ELSE</span>
+<span class="hljs-number">11</span>          <span class="hljs-keyword">WRITE</span> <span class="hljs-number">0</span>;
+<span class="hljs-number">12</span>      ENDIF
+<span class="hljs-number">13</span>      n := n / <span class="hljs-number">2</span>;
+<span class="hljs-number">14</span>  <span class="hljs-keyword">UNTIL</span> n != <span class="hljs-number">0</span>;
+<span class="hljs-number">15</span> <span class="hljs-keyword">END</span>
+</code></pre>
+<h3 id="example-of-compiled-code-binary-notation-of-a-number-">Example of compiled code (binary notation of a number)</h3>
+<pre><code class="lang-python">RESET <span class="hljs-selector-tag">a</span>
+STORE <span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">a</span>
+INC <span class="hljs-selector-tag">a</span>
+STORE <span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">a</span>
+INC <span class="hljs-selector-tag">a</span>
+GET <span class="hljs-selector-tag">a</span>
+LOAD <span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">a</span>
+RESET <span class="hljs-selector-tag">b</span>
+ADD <span class="hljs-selector-tag">b</span> <span class="hljs-selector-tag">a</span>
+SHR <span class="hljs-selector-tag">b</span>
+SHL <span class="hljs-selector-tag">b</span>
+RESET c
+ADD c <span class="hljs-selector-tag">a</span>
+SUB c <span class="hljs-selector-tag">b</span>
+JZERO c <span class="hljs-number">5</span>
+RESET d
+INC d
+PUT d
+JUMP <span class="hljs-number">3</span>
+RESET d
+PUT d
+SHR <span class="hljs-selector-tag">a</span>
+JZERO <span class="hljs-selector-tag">a</span> <span class="hljs-number">2</span>
+JUMP -<span class="hljs-number">16</span>
+HALT
+</code></pre>
+<h2 id="general-info">General Info</h2>
+<h3 id="language-grammar">Language Grammar</h3>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">program</span></span>      -&gt; DECLARE declarations BEGIN commands <span class="hljs-keyword">END</span>
+             | BEGIN commands <span class="hljs-keyword">END</span>
+
+declarations -&gt; declarations, pidentifier
+             | declarations, pidentifier(num:num)
+             | pidentifier
+             | pidentifier(num:num)
+
+commands     -&gt; commands command
+             | command
+
+command      -&gt; identifier := expression;
+             | <span class="hljs-keyword">IF</span> condition <span class="hljs-keyword">THEN</span> commands <span class="hljs-keyword">ELSE</span> commands <span class="hljs-keyword">ENDIF</span>
+             | <span class="hljs-keyword">IF</span> condition <span class="hljs-keyword">THEN</span> commands <span class="hljs-keyword">ENDIF</span>
+             | <span class="hljs-keyword">WHILE</span> condition <span class="hljs-keyword">DO</span> commands ENDWHILE
+             | <span class="hljs-built_in">REPEAT</span> commands UNTIL condition;
+             | FOR pidentifier FROM <span class="hljs-keyword">value</span> TO <span class="hljs-keyword">value</span> <span class="hljs-keyword">DO</span> commands ENDFOR
+             | FOR pidentifier FROM <span class="hljs-keyword">value</span> DOWNTO <span class="hljs-keyword">value</span> <span class="hljs-keyword">DO</span> commands ENDFOR
+             | READ identifier;
+             | <span class="hljs-built_in">WRITE</span> <span class="hljs-keyword">value</span>;
+
+expression   -&gt; <span class="hljs-keyword">value</span>
+             | <span class="hljs-keyword">value</span> + <span class="hljs-keyword">value</span>
+             | <span class="hljs-keyword">value</span> - <span class="hljs-keyword">value</span>
+             | <span class="hljs-keyword">value</span> * <span class="hljs-keyword">value</span>
+             | <span class="hljs-keyword">value</span> / <span class="hljs-keyword">value</span>
+             | <span class="hljs-keyword">value</span> % <span class="hljs-keyword">value</span>
+
+condition    -&gt; <span class="hljs-keyword">value</span> = <span class="hljs-keyword">value</span>
+             | <span class="hljs-keyword">value</span> <span class="hljs-comment">!= value</span>
+             | <span class="hljs-keyword">value</span> &lt; <span class="hljs-keyword">value</span>
+             | <span class="hljs-keyword">value</span> &gt; <span class="hljs-keyword">value</span>
+             | <span class="hljs-keyword">value</span> &lt;= <span class="hljs-keyword">value</span>
+             | <span class="hljs-keyword">value</span> &gt;= <span class="hljs-keyword">value</span>
+
+<span class="hljs-keyword">value</span>        -&gt; num
+             | identifier
+
+identifier   -&gt; pidentifier
+             | pidentifier(pidentifier)
+             | pidentifier(num)
+</code></pre>
+<h3 id="numbers-generator">Numbers Generator</h3>
+<pre><code class="lang-python">    <span class="hljs-keyword">while</span> <span class="hljs-keyword">number</span> != <span class="hljs-number">0</span>:
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">number</span> % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>:
+            <span class="hljs-keyword">number</span> = <span class="hljs-keyword">number</span> // <span class="hljs-number">2</span>
+            commands = concat(<span class="hljs-string">"SHL"</span>, <span class="hljs-keyword">reg</span>, nl(), commands)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">number</span> -= <span class="hljs-number">1</span>
+            commands = concat(<span class="hljs-string">"INC"</span>, <span class="hljs-keyword">reg</span>, nl(), commands)
+</code></pre>
+<p>We check the parity of number until we face 0 in number.</p>
+<ul>
+  <li>When number is even perform shift left ( multiply by 2 )</li>
+  <li>When number is odd perform inc ( increase by 1 )</li>
+</ul>
+<p>Reduce number in each iteration ( respectively /2 , -1).
+  Reversed output of this loop is a generated number in given register.</p>
+<h3 id="arithmetic-operations">Arithmetic operations</h3>
+<h4 id="multiplication">Multiplication</h4>
+<p>We are checking parity of value in register b.
+  It is worth to keep smaller number in reduced register.(10^3 time save.)</p>
+<pre><code class="lang-python"><span class="hljs-symbol">while</span> <span class="hljs-keyword">b </span>&gt; <span class="hljs-number">0</span>:
+    <span class="hljs-meta">if</span> <span class="hljs-keyword">b </span>% <span class="hljs-number">2</span> == <span class="hljs-number">0</span>:
+        a = a * <span class="hljs-number">2</span>
+        <span class="hljs-keyword">b </span>= <span class="hljs-keyword">b </span>/ <span class="hljs-number">2</span>
+<span class="hljs-symbol">    else:</span>
+        ab = ab * a
+        <span class="hljs-keyword">b </span>= <span class="hljs-keyword">b </span>- <span class="hljs-number">1</span>
+</code></pre>
+<h5 id="example-3-100">Example 3 * 100</h5>
+<table>
+  <thead>
+    <tr>
+      <th>ab</th>
+      <th>a</th>
+      <th>b</th>
+      <th>b % 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>3</td>
+      <td>100</td>
+      <td>True</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>6</td>
+      <td>50</td>
+      <td>True</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>12</td>
+      <td>25</td>
+      <td>False</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>12</td>
+      <td>24</td>
+      <td>True</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>24</td>
+      <td>12</td>
+      <td>True</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>48</td>
+      <td>6</td>
+      <td>True</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>96</td>
+      <td>3</td>
+      <td>False</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>108</td>
+      <td>96</td>
+      <td>2</td>
+      <td>True</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>108</td>
+      <td>192</td>
+      <td>1</td>
+      <td>False</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>300</td>
+      <td>192</td>
+      <td>0</td>
+      <td>END</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="division-and-modulo">Division and modulo</h4>
+<p>As we can see in example below same
+  algorithm can be used to find result of mod and integer unsigned division.</p>
+<h5 id="attempt-1">Attempt #1</h5>
+<pre><code class="lang-python">    <span class="hljs-attr">y_core</span> = y
+<span class="hljs-attr">a</span> = <span class="hljs-number">0</span>
+while x &gt;= y:
+    <span class="hljs-attr">R</span> = <span class="hljs-number">1</span>
+    y *= <span class="hljs-number">2</span>
+    while x &gt;= y:
+        R *= <span class="hljs-number">2</span>
+        y *= <span class="hljs-number">2</span>
+    a += R
+    x <span class="hljs-attr">-=</span> (y / <span class="hljs-number">2</span>)
+    <span class="hljs-attr">y</span> = y_core
+</code></pre>
+<h5 id="example-39-100">Example 39 / 100</h5>
+<table>
+  <thead>
+    <tr>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+      <th>d</th>
+      <th>A&gt;B</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>39</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>True</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>10</td>
+      <td>1</td>
+      <td>0</td>
+      <td>True</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>20</td>
+      <td>2</td>
+      <td>0</td>
+      <td>True</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>40</td>
+      <td>4</td>
+      <td>0</td>
+      <td>False</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>5</td>
+      <td>0</td>
+      <td>4</td>
+      <td>True</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>10</td>
+      <td>1</td>
+      <td>4</td>
+      <td>True</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>20</td>
+      <td>2</td>
+      <td>4</td>
+      <td>False</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>5</td>
+      <td>0</td>
+      <td>6</td>
+      <td>True</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>10</td>
+      <td>1</td>
+      <td>6</td>
+      <td>False</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>5</td>
+      <td>0</td>
+      <td>7</td>
+      <td>False</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<h5 id="attempt-2">Attempt #2</h5>
+<pre><code class="lang-python">    <span class="hljs-attr">a</span> = <span class="hljs-number">0</span>
+while d &gt;= c:
+    <span class="hljs-attr">e</span> = c
+    <span class="hljs-attr">f</span> = <span class="hljs-number">1</span>
+    while d &gt;= e:
+        f *= <span class="hljs-number">2</span>
+        e *= <span class="hljs-number">2</span>
+    <span class="hljs-attr">f</span> = f / <span class="hljs-number">2</span>
+    <span class="hljs-attr">e</span> = e / <span class="hljs-number">2</span>
+    d <span class="hljs-attr">-=</span> e
+    a += f
+</code></pre>
+<h2 id="warnings">Warnings</h2>
+<p>Warnings can be turned on with flag --warnings as third argument. User can face some
+  yellow warnings which main response is to inform about that when we refer to array cell using variable
+  ( for example arr(0:15);a:=123; arr(a) ) than on python side we can not check if arr(a) is &#39;outside the array&#39;, because
+  python does not know what virtual machine hold under memory address of variable &#39;a&#39;.</p>
+<h2 id="code-example">Code Example</h2>
+<h4 id="equality">Equality</h4>
+<pre><code class="lang-python">def p_condition_eq(p):
+    <span class="hljs-string">""</span><span class="hljs-string">"condition   : value EQ value"</span><span class="hljs-string">""</span>
+    v1 = get_value(p[<span class="hljs-number">1</span>], <span class="hljs-string">'c'</span>, p.lineno(<span class="hljs-number">1</span>), <span class="hljs-string">'d'</span>)
+    v2 = get_value(p[<span class="hljs-number">3</span>], <span class="hljs-string">'d'</span>, p.lineno(<span class="hljs-number">3</span>), <span class="hljs-string">'b'</span>)
+    m1, m2, m3 = spawn_frogs_multiple(<span class="hljs-number">3</span>)
+    p[<span class="hljs-number">0</span>] = (pack(v1 + v2 +
+                 <span class="hljs-keyword">cmd</span><span class="bash">(<span class="hljs-string">'reset'</span>, <span class="hljs-string">'e'</span>) +
+</span>                 <span class="hljs-keyword">cmd</span><span class="bash">(<span class="hljs-string">'add'</span>, <span class="hljs-string">'e'</span>, <span class="hljs-string">'c'</span>) +
+</span>                 <span class="hljs-keyword">cmd</span><span class="bash">(<span class="hljs-string">'reset'</span>, <span class="hljs-string">'f'</span>) +
+</span>                 <span class="hljs-keyword">cmd</span><span class="bash">(<span class="hljs-string">'add'</span>, <span class="hljs-string">'f'</span>, <span class="hljs-string">'d'</span>) +
+</span>                 <span class="hljs-keyword">cmd</span><span class="bash">(<span class="hljs-string">'sub'</span>, <span class="hljs-string">'e'</span>, <span class="hljs-string">'d'</span>) +
+</span>                 <span class="hljs-keyword">cmd</span><span class="bash">(<span class="hljs-string">'sub'</span>, <span class="hljs-string">'f'</span>, <span class="hljs-string">'c'</span>) +
+</span>                 <span class="hljs-keyword">cmd</span><span class="bash">(<span class="hljs-string">'jzero'</span>, <span class="hljs-string">'e'</span>, frogs[m3]) +
+</span>                 <span class="hljs-keyword">cmd</span><span class="bash">(<span class="hljs-string">'jump'</span>, frogs[m2]) +
+</span>                 m3 + <span class="hljs-keyword">cmd</span><span class="bash">(<span class="hljs-string">'jzero'</span>, <span class="hljs-string">'f'</span>, frogs[m1]) +
+</span>                 <span class="hljs-keyword">cmd</span><span class="bash">(<span class="hljs-string">'jump'</span>, frogs[m2]) +
+</span>                 m1,
+                 <span class="hljs-string">'&lt;&lt;eq&gt;&gt;'</span>), m2)
+</code></pre>
+<h2 id="technologies">Technologies</h2>
+<ul>
+  <li>python</li>
+  <li>ply</li>
+  <li>termcolor</li>
+  <li>numpy</li>
+</ul>
