@@ -195,6 +195,7 @@ $link->close();
 
 - CSS
 - SASS
+- COMPASS
 - HTML
 - Javascript
 - PHP
