@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="res/css/fav_math.css"></link>
+        <title>Favourite math equation</title>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script
+            type="text/javascript"
+            id="MathJax-script"
+            async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    </head>
+    <body>
+        <div class='container'>
+            <div id='favourite-math'>
+                <div id='description'>
+                    <b>
+                        <a
+                            href='https://www.statisticshowto.com/probability-and-statistics/regression-analysis/find-a-linear-regression-equation/'>
+                            Linear regression</a>
+                    </b>
+                    is a way to model the relationship between two variables. You might also
+                    recognize the equation as the slope formula. The equation has the form \(Y= a +
+                    b \cdot X\), where Y is the dependent variable (that’s the variable that goes on
+                    the Y axis), X is the independent variable (i.e. it is plotted on the X axis), b
+                    is the slope of the line and a is the y-intercept.
+                </div>
+                <div id='formula'>
+                    $$ a = {( \sum y ) \cdot ( \sum x^2 ) - ( \sum x ) \cdot ( \sum x \cdot y )
+                    \over n \cdot (\sum x^2) - (\sum x)^2 }$$ $$ b = {n \cdot ( \sum x \cdot y ) - (
+                    \sum x ) \cdot ( \sum y ) \over n \cdot (\sum x^2) - (\sum x)^2 }$$
+                </div>
+            </div>
+            <iframe id='formattor'></iframe>
+        </div>
+    </body>
+</html>

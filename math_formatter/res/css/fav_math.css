@@ -1,0 +1,36 @@
+body,
+html {
+    color: #569CD6;
+    background-color: #1e1e1e;
+    position: absolute;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 0;
+    height: 100%;
+    position: absolute;
+}
+
+#description {
+    font-size: 1.4em;
+    margin: 20px;
+}
+#formula {
+    margin-top: 40px;
+    color: #B5CEA8;
+}
+
+#favourite-math {
+    padding: 10px;
+    text-align: center;
+    justify-content: space-around;
+}
+#formattor {
+    height: 100%;
+}
