@@ -1,5 +1,0 @@
-name: Math formattor
-mode: flutter
-files:
-  - name: main.dart
-  - name: constant.dart
