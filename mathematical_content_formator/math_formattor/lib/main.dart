@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:math_formattor/constant.dart';
 import 'package:catex/catex.dart';
-
+import 'package:katex_flutter/katex_flutter.dart';
 void main() {
   runApp(MyApp());
 }
@@ -28,27 +28,13 @@ class MyCustomForm extends StatefulWidget {
     return MyCustomFormState();
   }
 }
-// Container(
-//           child: TextField(
-//             decoration: InputDecoration(
-//               border: OutlineInputBorder(),
-//               hintText: 'Enter a search term'
-//             ),
-//           ),
-//         ),
 
 class MyCustomFormState extends State < MyCustomForm > {
-  // final myController = TextEditingController();
-  // @override
-  // void dispose() {
-  //   myController.dispose();
-  //   super.dispose();
-  // }
   late TextEditingController myController;
 
   @override
   void initState() {
-    myController = TextEditingController();
+    myController = TextEditingController(text: "Example: \$\\sum^{100}_{u=1} u*0 \\lt 1\$");
     myController.addListener(() {
       setState(() {});
     });
@@ -61,19 +47,12 @@ class MyCustomFormState extends State < MyCustomForm > {
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     bool isScreenWide =
       MediaQuery.of(context).size.width >= kMinWidthOfLargeScreen;
     return Flex(
       direction: isScreenWide ? Axis.horizontal : Axis.vertical,
-      // children: <Widget>[
-      //   Text('Current Value: ${myController.text}'),
-      //   TextField(
-      //     controller: myController,
-      //   ),
-      // ],
       children: < Widget > [
         Expanded(
           flex: 1,
@@ -91,22 +70,19 @@ class MyCustomFormState extends State < MyCustomForm > {
           ),
         ),
         Expanded(
-          flex: 1,
+          flex: 2,
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            child: CaTeX('${myController.text}'),
-            // TextField(
-            //   keyboardType: TextInputType.multiline,
-            //   maxLines: null,
-            //   readOnly: true,
-            //   decoration: InputDecoration(
-            //     border: UnderlineInputBorder(),
-            //     labelText: 'Result'
-            //   ),
-            // ),
+            child: beautify('${myController.text}'),
           ),
         ),
       ],
     );
   }
+}
+
+KaTeX beautify(text) {
+  //  return CaTeX(text); \text { example ... }
+  return KaTeX(laTeXCode: Text(text));
+
 }
